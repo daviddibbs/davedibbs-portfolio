@@ -206,6 +206,13 @@
             color: var(--purple); display: inline-block;
         }
 
+        /* SUB CAMPAIGNS (BAT, Adobe) */
+        .project-sub + .project-sub {
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border);
+        }
+
         /* MEDIA */
         .project-media { margin-top: 48px; display: grid; gap: 2px; }
         .project-media.two-col { grid-template-columns: 1fr 1fr; }
@@ -220,15 +227,10 @@
         }
         .media-item.landscape { aspect-ratio: 16/9; }
         .media-item.portrait { aspect-ratio: 9/16; }
-
-        /* VIDEO EMBED */
         .media-item iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: none;
         }
-
         .media-item-inner {
             width: 100%; height: 100%;
             background: linear-gradient(135deg, #1a1a1a, #252525);
@@ -440,11 +442,9 @@
                 </div>
             </div>
             <div class="project-media two-col">
-                <!-- LIVE VIDEO FROM DRIVE -->
                 <div class="media-item landscape">
                     <iframe src="https://drive.google.com/file/d/1jJLoWnPmR0g8cQhCe-fZIfhNKSiaLAwq/preview" allow="autoplay" frameborder="0"></iframe>
                 </div>
-                <!-- PLACEHOLDER FOR SECOND ASSET -->
                 <div class="media-item landscape">
                     <div class="media-item-inner">
                         <span class="media-placeholder-icon">◼</span>
@@ -492,10 +492,10 @@
                 </div>
             </div>
             <div class="project-media four-col">
-                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 1</span></div><span class="media-badge">9:16</span></div>
-                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 2</span></div><span class="media-badge">9:16</span></div>
-                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 3</span></div><span class="media-badge">9:16</span></div>
-                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">BTS</span></div><span class="media-badge">9:16</span></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 1</span></div></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 2</span></div></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 3</span></div></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">BTS</span></div></div>
             </div>
         </div>
 
@@ -512,8 +512,73 @@
                 </div>
             </div>
             <div class="project-media two-col">
-                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">9:16 Video</span></div><span class="media-badge">9:16</span></div>
-                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">9:16 Video</span></div><span class="media-badge">9:16</span></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">9:16 Video</span></div></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">9:16 Video</span></div></div>
+            </div>
+        </div>
+
+        <!-- DISNEY -->
+        <div class="project-block reveal">
+            <div class="project-header">
+                <h3 class="project-client-name">Disney UK</h3>
+                <h4 class="project-campaign-title">Breathe with Disney</h4>
+            </div>
+            <div class="project-body">
+                <p class="project-description">Instagram Stories designed to teach young followers box breathing through Disney animations that respond in real time to each inhale, hold and exhale. Wellness, but with a dash of magic.</p>
+                <div class="project-meta">
+                    <span class="project-type-tag">Social Story / Wellness</span>
+                </div>
+            </div>
+            <div class="project-media two-col">
+                <div class="media-item portrait">
+                    <iframe src="https://drive.google.com/file/d/1IWKZjLp10WZwlTiGQ34EBKj9qbX2GSGH/preview" allow="autoplay" frameborder="0"></iframe>
+                </div>
+                <div class="media-item portrait">
+                    <iframe src="https://drive.google.com/file/d/1hnoL5411FJelwtBApWStSBBX3nIFosgx/preview" allow="autoplay" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAT -->
+        <div class="project-block reveal">
+            <div class="project-header">
+                <h3 class="project-client-name">BAT</h3>
+            </div>
+
+            <!-- Vuse — Hero -->
+            <div class="project-sub">
+                <h4 class="project-campaign-title">Your Flavour, Your Style</h4>
+                <div class="project-body">
+                    <p class="project-description">To celebrate the launch of the Vuse Reload colour series, I created and directed a video showing each device in their own colour world. Three distinct environments built around the moment and the mood of each device, transitioning smoothly between each. The colour of each world reflected the lifestyle that device belonged to.</p>
+                    <div class="project-meta">
+                        <div class="project-stats">
+                            <div class="project-stat"><div class="project-stat-number">25%</div><div class="project-stat-label">Engagement boost</div></div>
+                            <div class="project-stat"><div class="project-stat-number">#1</div><div class="project-stat-label">Highest performing post</div></div>
+                        </div>
+                        <span class="project-type-tag">Social Video / Art Direction</span>
+                    </div>
+                </div>
+                <div class="project-media one-col">
+                    <div class="media-item portrait">
+                        <iframe src="https://drive.google.com/file/d/1jF23PkM8jy1kEchmSNC7axzi44bgHDdu/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Velo -->
+            <div class="project-sub">
+                <h4 class="project-campaign-title">Velo x Ayo Beatz</h4>
+                <div class="project-body">
+                    <p class="project-description">A 90s-inspired music video concept created for Velo with influencer Ayo Beatz. Built around nostalgia and creative energy, the campaign brought a fresh cultural angle to the brand without it ever feeling like an ad.</p>
+                    <div class="project-meta">
+                        <span class="project-type-tag">Influencer / Music Video</span>
+                    </div>
+                </div>
+                <div class="project-media one-col">
+                    <div class="media-item landscape">
+                        <iframe src="https://drive.google.com/file/d/17SXjQgdR4a-KRxTYxZpwuDRv0GpxSmhh/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -521,23 +586,44 @@
         <div class="project-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Adobe</h3>
-                <h4 class="project-campaign-title">Photoshop IRL</h4>
             </div>
-            <div class="project-body">
-                <p class="project-description">The brief was to show everyone can Photoshop. My thought? It's probably easier than real life. Paint buckets, lassoing, retouching. You could do all of this IRL, but Photoshop just makes it easier. I built an influencer campaign that challenged novices to test their real-world skills against the tools in Photoshop, using Ameziene as the hero creator.</p>
-                <div class="project-meta">
-                    <div class="project-stats">
-                        <div class="project-stat"><div class="project-stat-number">13.7M</div><div class="project-stat-label">Impressions</div></div>
-                        <div class="project-stat"><div class="project-stat-number">1.9M</div><div class="project-stat-label">Interactions</div></div>
-                        <div class="project-stat"><div class="project-stat-number">407K</div><div class="project-stat-label">Active Engagements</div></div>
-                        <div class="project-stat"><div class="project-stat-number">61.2K</div><div class="project-stat-label">Post Engagements</div></div>
+
+            <!-- Photoshop IRL -->
+            <div class="project-sub">
+                <h4 class="project-campaign-title">Photoshop IRL</h4>
+                <div class="project-body">
+                    <p class="project-description">The brief was to show everyone can Photoshop. My thought? It's probably easier than real life. Paint buckets, lassoing, retouching. You could do all of this IRL, but Photoshop just makes it easier. I built an influencer campaign that challenged novices to test their real-world skills against the tools in Photoshop, using Ameziene as the hero creator.</p>
+                    <div class="project-meta">
+                        <div class="project-stats">
+                            <div class="project-stat"><div class="project-stat-number">13.7M</div><div class="project-stat-label">Impressions</div></div>
+                            <div class="project-stat"><div class="project-stat-number">1.9M</div><div class="project-stat-label">Interactions</div></div>
+                            <div class="project-stat"><div class="project-stat-number">407K</div><div class="project-stat-label">Active Engagements</div></div>
+                            <div class="project-stat"><div class="project-stat-number">61.2K</div><div class="project-stat-label">Post Engagements</div></div>
+                        </div>
+                        <span class="project-type-tag">Influencer / Social Campaign</span>
                     </div>
-                    <span class="project-type-tag">Influencer / Social Campaign</span>
+                </div>
+                <div class="project-media one-col">
+                    <div class="media-item landscape">
+                        <iframe src="https://drive.google.com/file/d/1Idvz58Vj32lN3OqjFfXivBaQ2rRkNKb2/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
                 </div>
             </div>
-            <div class="project-media two-col">
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Hero Video</span></div><span class="media-badge">Video</span></div>
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Behind The Scenes</span></div><span class="media-badge">Video</span></div>
+
+            <!-- Adobe Express / Jill Scott -->
+            <div class="project-sub">
+                <h4 class="project-campaign-title">Anyone Can Photoshop</h4>
+                <div class="project-body">
+                    <p class="project-description">Adobe Express is so intuitive that literally anyone can use it. To prove it, we brought in Jill Scott and let her loose. The campaign showed that great creative doesn't need technical expertise, just the right tool and the right person to pick it up.</p>
+                    <div class="project-meta">
+                        <span class="project-type-tag">Influencer / Social Campaign</span>
+                    </div>
+                </div>
+                <div class="project-media one-col">
+                    <div class="media-item landscape">
+                        <iframe src="https://drive.google.com/file/d/1KXf6oM-jUhdZL3BdoHu1EC5sNfVetDZI/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -548,6 +634,7 @@
         <span class="section-label">Experiential</span>
         <h2 class="section-title">Immersive brand<br>experiences.</h2>
 
+        <!-- Secret Cinema -->
         <div class="exp-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Secret Cinema</h3>
@@ -558,11 +645,19 @@
                 <div class="project-meta"><span class="project-type-tag">Immersive Experience</span></div>
             </div>
             <div class="project-media hero-split">
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Wrap Trailer</span></div><span class="media-badge">16:9 Video</span></div>
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Photography</span></div><span class="media-badge">Statics</span></div>
+                <div class="media-item landscape">
+                    <iframe src="https://drive.google.com/file/d/1_Z-E8_NBj_8ooyvYn8IbDhSgwi6vcjZl/preview" allow="autoplay" frameborder="0"></iframe>
+                </div>
+                <div class="media-item landscape">
+                    <div class="media-item-inner">
+                        <span class="media-placeholder-icon">◼</span>
+                        <span class="media-placeholder-text">Photography</span>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- HSBC -->
         <div class="exp-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">HSBC</h3>
@@ -572,13 +667,20 @@
                 <p class="project-description">Inspired by Google's map pins and London's Blue Plaques, I created a campaign that drew attention to the specific places that meant something to LGBTQ+ people. Locations previously hidden for safety, now celebrated. The concept extended from OOH and bus wraps to UGC and full branch takeovers for Birmingham Pride.</p>
                 <div class="project-meta"><span class="project-type-tag">OOH / Experiential</span></div>
             </div>
-            <div class="project-media three-col">
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">OOH Pins</span></div><span class="media-badge">OOH</span></div>
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Bus Wrap</span></div><span class="media-badge">OOH</span></div>
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Branch Wrap</span></div><span class="media-badge">In-Store</span></div>
+            <div class="project-media two-col">
+                <div class="media-item landscape">
+                    <iframe src="https://drive.google.com/file/d/1KXQOa7VZWBiZKYOWlDvjYmcoCUkDTMkm/preview" allow="autoplay" frameborder="0"></iframe>
+                </div>
+                <div class="media-item landscape">
+                    <div class="media-item-inner">
+                        <span class="media-placeholder-icon">◼</span>
+                        <span class="media-placeholder-text">OOH / Photography</span>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- Amazon -->
         <div class="exp-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Amazon</h3>
@@ -589,9 +691,9 @@
                 <div class="project-meta"><span class="project-type-tag">Experiential Event</span></div>
             </div>
             <div class="project-media three-col">
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div><span class="media-badge">Photography</span></div>
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div><span class="media-badge">Photography</span></div>
-                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div><span class="media-badge">Photography</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div></div>
             </div>
         </div>
 
