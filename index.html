@@ -163,7 +163,7 @@
         }
         .stat-label { font-size: 13px; color: var(--cream-dim); letter-spacing: 0.05em; }
 
-        /* PROJECTS EDITORIAL */
+        /* PROJECTS */
         #projects { border-top: 1px solid var(--border); }
         .project-block { padding: 80px 0; border-bottom: 1px solid var(--border); }
         .project-block:last-child { border-bottom: none; }
@@ -213,19 +213,28 @@
         .project-media.four-col { grid-template-columns: repeat(4, 1fr); }
         .project-media.hero-split { grid-template-columns: 2fr 1fr; }
         .project-media.one-col { grid-template-columns: 1fr; }
+
         .media-item {
             background: var(--bg-secondary);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
             position: relative; overflow: hidden;
         }
         .media-item.landscape { aspect-ratio: 16/9; }
         .media-item.portrait { aspect-ratio: 9/16; }
+
+        /* VIDEO EMBED */
+        .media-item iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
         .media-item-inner {
             width: 100%; height: 100%;
             background: linear-gradient(135deg, #1a1a1a, #252525);
             display: flex; flex-direction: column;
             align-items: center; justify-content: center; gap: 10px;
+            position: absolute; top: 0; left: 0;
         }
         .media-placeholder-icon { font-size: 28px; opacity: 0.15; }
         .media-placeholder-text {
@@ -234,14 +243,14 @@
             color: var(--cream-dim); opacity: 0.3;
         }
         .media-badge {
-            position: absolute; bottom: 12px; left: 12px;
+            position: absolute; bottom: 12px; left: 12px; z-index: 2;
             font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600;
             letter-spacing: 0.1em; text-transform: uppercase;
             padding: 4px 10px; background: rgba(12,12,12,0.8);
             color: var(--cream-dim); backdrop-filter: blur(4px);
         }
         .coming-soon-overlay {
-            position: absolute; inset: 0;
+            position: absolute; inset: 0; z-index: 2;
             display: flex; align-items: center; justify-content: center;
             background: rgba(12,12,12,0.6);
         }
@@ -286,8 +295,6 @@
         .sidehustle-intro { margin-bottom: 60px; max-width: 600px; }
         .sidehustle-intro p { font-size: 18px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 16px; }
         .sidehustle-intro p strong { color: var(--cream); font-weight: 500; }
-
-        /* GAMES GRID */
         .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
         .game-card {
             background: var(--bg-secondary); overflow: hidden; cursor: none;
@@ -313,28 +320,19 @@
             padding: 4px 10px; border: 1px solid var(--purple-dim); color: var(--purple);
         }
         .game-status.in-dev { border-color: rgba(232, 223, 208, 0.2); color: var(--cream-dim); }
-
-        /* QR CODE */
         .game-qr {
-            padding: 20px 24px;
-            border-top: 1px solid var(--border);
+            padding: 20px 24px; border-top: 1px solid var(--border);
             display: flex; align-items: center; gap: 16px;
         }
-        .game-qr img {
-            width: 80px; height: 80px;
-            border-radius: 4px; flex-shrink: 0;
-        }
-        .game-qr-text {
-            display: flex; flex-direction: column; gap: 4px;
-        }
+        .game-qr img { width: 80px; height: 80px; border-radius: 4px; flex-shrink: 0; }
+        .game-qr-text { display: flex; flex-direction: column; gap: 4px; }
         .game-qr-label {
             font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600;
             letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim);
         }
         .game-qr-link {
             font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600;
-            color: var(--purple); text-decoration: none; letter-spacing: 0.05em;
-            transition: color 0.2s ease;
+            color: var(--purple); text-decoration: none; transition: color 0.2s ease;
         }
         .game-qr-link:hover { color: var(--cream); }
 
@@ -378,7 +376,6 @@
 
     <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- NAV -->
     <nav id="navbar">
         <a href="#hero" class="nav-logo">DD</a>
         <ul class="nav-links">
@@ -390,7 +387,6 @@
         </ul>
     </nav>
 
-    <!-- HERO -->
     <section id="hero">
         <p class="hero-tag">Senior Art Director — Social &amp; Digital</p>
         <h1 class="hero-name">
@@ -403,7 +399,6 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
         <span class="section-label">About</span>
         <h2 class="section-title">The person<br>behind the pixels.</h2>
@@ -414,32 +409,19 @@
                 <p>When I'm not making stuff for your feed, I'm building video games through my indie studio <strong>Lunch Ghost</strong> or getting distracted trying to find another creative thing to ruin my social life.</p>
             </div>
             <div class="about-stats reveal">
-                <div class="stat">
-                    <div class="stat-number">12+</div>
-                    <div class="stat-label">Years directing social creative</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">40+</div>
-                    <div class="stat-label">Clients &amp; brands worked with</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Memes conceptualised</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Games shipped, 3rd in dev</div>
-                </div>
+                <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Years directing social creative</div></div>
+                <div class="stat"><div class="stat-number">40+</div><div class="stat-label">Clients &amp; brands worked with</div></div>
+                <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Memes conceptualised</div></div>
+                <div class="stat"><div class="stat-number">2</div><div class="stat-label">Games shipped, 3rd in dev</div></div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects">
         <span class="section-label">Projects</span>
         <h2 class="section-title">Selected work.</h2>
 
-        <!-- 1. CHANNEL 4 -->
+        <!-- CHANNEL 4 -->
         <div class="project-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Channel 4</h3>
@@ -449,45 +431,30 @@
                 <p class="project-description">Inspired by Kickstarter's donation model, I created a Twitter campaign where donating more unlocked better rewards, using Channel 4's celebrity connections to make each reward unmissable. The campaign raised £7,720 through Twitter alone and generated 239 million impressions. One of the rewards was getting to insult Piers Morgan. He approved it. The internet loved it.</p>
                 <div class="project-meta">
                     <div class="project-stats">
-                        <div class="project-stat">
-                            <div class="project-stat-number">239M</div>
-                            <div class="project-stat-label">Impressions</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">62M</div>
-                            <div class="project-stat-label">Reach</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">£7,720</div>
-                            <div class="project-stat-label">Raised via Twitter</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">23K</div>
-                            <div class="project-stat-label">Mentions</div>
-                        </div>
+                        <div class="project-stat"><div class="project-stat-number">239M</div><div class="project-stat-label">Impressions</div></div>
+                        <div class="project-stat"><div class="project-stat-number">62M</div><div class="project-stat-label">Reach</div></div>
+                        <div class="project-stat"><div class="project-stat-number">£7,720</div><div class="project-stat-label">Raised via Twitter</div></div>
+                        <div class="project-stat"><div class="project-stat-number">23K</div><div class="project-stat-label">Mentions</div></div>
                     </div>
                     <span class="project-type-tag">Social Campaign</span>
                 </div>
             </div>
             <div class="project-media two-col">
+                <!-- LIVE VIDEO FROM DRIVE -->
                 <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Campaign Visual</span>
-                    </div>
-                    <span class="media-badge">Static</span>
+                    <iframe src="https://drive.google.com/file/d/1jJLoWnPmR0g8cQhCe-fZIfhNKSiaLAwq/preview" allow="autoplay" frameborder="0"></iframe>
                 </div>
+                <!-- PLACEHOLDER FOR SECOND ASSET -->
                 <div class="media-item landscape">
                     <div class="media-item-inner">
                         <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Campaign Visual</span>
+                        <span class="media-placeholder-text">Asset coming</span>
                     </div>
-                    <span class="media-badge">Static</span>
                 </div>
             </div>
         </div>
 
-        <!-- 2. LEXUS -->
+        <!-- LEXUS -->
         <div class="project-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Lexus</h3>
@@ -512,7 +479,7 @@
             </div>
         </div>
 
-        <!-- 3. PLAY-DOH -->
+        <!-- PLAY-DOH -->
         <div class="project-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Play-Doh</h3>
@@ -525,38 +492,14 @@
                 </div>
             </div>
             <div class="project-media four-col">
-                <div class="media-item portrait">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">Episode 1</span>
-                    </div>
-                    <span class="media-badge">9:16</span>
-                </div>
-                <div class="media-item portrait">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">Episode 2</span>
-                    </div>
-                    <span class="media-badge">9:16</span>
-                </div>
-                <div class="media-item portrait">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">Episode 3</span>
-                    </div>
-                    <span class="media-badge">9:16</span>
-                </div>
-                <div class="media-item portrait">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">BTS</span>
-                    </div>
-                    <span class="media-badge">9:16</span>
-                </div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 1</span></div><span class="media-badge">9:16</span></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 2</span></div><span class="media-badge">9:16</span></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Episode 3</span></div><span class="media-badge">9:16</span></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">BTS</span></div><span class="media-badge">9:16</span></div>
             </div>
         </div>
 
-        <!-- 4. TALKTALK -->
+        <!-- TALKTALK -->
         <div class="project-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">TalkTalk</h3>
@@ -569,24 +512,12 @@
                 </div>
             </div>
             <div class="project-media two-col">
-                <div class="media-item portrait">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">9:16 Video</span>
-                    </div>
-                    <span class="media-badge">9:16</span>
-                </div>
-                <div class="media-item portrait">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">9:16 Video</span>
-                    </div>
-                    <span class="media-badge">9:16</span>
-                </div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">9:16 Video</span></div><span class="media-badge">9:16</span></div>
+                <div class="media-item portrait"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">9:16 Video</span></div><span class="media-badge">9:16</span></div>
             </div>
         </div>
 
-        <!-- 5. ADOBE -->
+        <!-- ADOBE -->
         <div class="project-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Adobe</h3>
@@ -596,41 +527,17 @@
                 <p class="project-description">The brief was to show everyone can Photoshop. My thought? It's probably easier than real life. Paint buckets, lassoing, retouching. You could do all of this IRL, but Photoshop just makes it easier. I built an influencer campaign that challenged novices to test their real-world skills against the tools in Photoshop, using Ameziene as the hero creator.</p>
                 <div class="project-meta">
                     <div class="project-stats">
-                        <div class="project-stat">
-                            <div class="project-stat-number">13.7M</div>
-                            <div class="project-stat-label">Impressions</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">1.9M</div>
-                            <div class="project-stat-label">Interactions</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">407K</div>
-                            <div class="project-stat-label">Active Engagements</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">61.2K</div>
-                            <div class="project-stat-label">Post Engagements</div>
-                        </div>
+                        <div class="project-stat"><div class="project-stat-number">13.7M</div><div class="project-stat-label">Impressions</div></div>
+                        <div class="project-stat"><div class="project-stat-number">1.9M</div><div class="project-stat-label">Interactions</div></div>
+                        <div class="project-stat"><div class="project-stat-number">407K</div><div class="project-stat-label">Active Engagements</div></div>
+                        <div class="project-stat"><div class="project-stat-number">61.2K</div><div class="project-stat-label">Post Engagements</div></div>
                     </div>
                     <span class="project-type-tag">Influencer / Social Campaign</span>
                 </div>
             </div>
             <div class="project-media two-col">
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">Hero Video</span>
-                    </div>
-                    <span class="media-badge">Video</span>
-                </div>
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">Behind The Scenes</span>
-                    </div>
-                    <span class="media-badge">Video</span>
-                </div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Hero Video</span></div><span class="media-badge">Video</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Behind The Scenes</span></div><span class="media-badge">Video</span></div>
             </div>
         </div>
 
@@ -641,7 +548,6 @@
         <span class="section-label">Experiential</span>
         <h2 class="section-title">Immersive brand<br>experiences.</h2>
 
-        <!-- Secret Cinema -->
         <div class="exp-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Secret Cinema</h3>
@@ -649,29 +555,14 @@
             </div>
             <div class="project-body">
                 <p class="project-description">As a Creative at Secret Cinema I worked across every part of the production. From art directing sets and building immersive audience experiences, to co-editing the wrap trailer for our Moulin Rouge run. One day building sets, the next directing audience tracks and developing the online journey. Every show was a different discipline.</p>
-                <div class="project-meta">
-                    <span class="project-type-tag">Immersive Experience</span>
-                </div>
+                <div class="project-meta"><span class="project-type-tag">Immersive Experience</span></div>
             </div>
             <div class="project-media hero-split">
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">▶</span>
-                        <span class="media-placeholder-text">Wrap Trailer</span>
-                    </div>
-                    <span class="media-badge">16:9 Video</span>
-                </div>
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Photography</span>
-                    </div>
-                    <span class="media-badge">Statics</span>
-                </div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">▶</span><span class="media-placeholder-text">Wrap Trailer</span></div><span class="media-badge">16:9 Video</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Photography</span></div><span class="media-badge">Statics</span></div>
             </div>
         </div>
 
-        <!-- HSBC -->
         <div class="exp-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">HSBC</h3>
@@ -679,36 +570,15 @@
             </div>
             <div class="project-body">
                 <p class="project-description">Inspired by Google's map pins and London's Blue Plaques, I created a campaign that drew attention to the specific places that meant something to LGBTQ+ people. Locations previously hidden for safety, now celebrated. The concept extended from OOH and bus wraps to UGC and full branch takeovers for Birmingham Pride.</p>
-                <div class="project-meta">
-                    <span class="project-type-tag">OOH / Experiential</span>
-                </div>
+                <div class="project-meta"><span class="project-type-tag">OOH / Experiential</span></div>
             </div>
             <div class="project-media three-col">
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">OOH Pins</span>
-                    </div>
-                    <span class="media-badge">OOH</span>
-                </div>
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Bus Wrap</span>
-                    </div>
-                    <span class="media-badge">OOH</span>
-                </div>
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Branch Wrap</span>
-                    </div>
-                    <span class="media-badge">In-Store</span>
-                </div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">OOH Pins</span></div><span class="media-badge">OOH</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Bus Wrap</span></div><span class="media-badge">OOH</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Branch Wrap</span></div><span class="media-badge">In-Store</span></div>
             </div>
         </div>
 
-        <!-- Amazon -->
         <div class="exp-block reveal">
             <div class="project-header">
                 <h3 class="project-client-name">Amazon</h3>
@@ -716,32 +586,12 @@
             </div>
             <div class="project-body">
                 <p class="project-description">An immersive fan screening event for the YA romance film After We Fell. I designed every zone to be as Instagrammable as possible on an extremely limited budget. Each space was built around audience engagement with subtle nods to the film and maximum shareable moments.</p>
-                <div class="project-meta">
-                    <span class="project-type-tag">Experiential Event</span>
-                </div>
+                <div class="project-meta"><span class="project-type-tag">Experiential Event</span></div>
             </div>
             <div class="project-media three-col">
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Event Photography</span>
-                    </div>
-                    <span class="media-badge">Photography</span>
-                </div>
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Event Photography</span>
-                    </div>
-                    <span class="media-badge">Photography</span>
-                </div>
-                <div class="media-item landscape">
-                    <div class="media-item-inner">
-                        <span class="media-placeholder-icon">◼</span>
-                        <span class="media-placeholder-text">Event Photography</span>
-                    </div>
-                    <span class="media-badge">Photography</span>
-                </div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div><span class="media-badge">Photography</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div><span class="media-badge">Photography</span></div>
+                <div class="media-item landscape"><div class="media-item-inner"><span class="media-placeholder-icon">◼</span><span class="media-placeholder-text">Event Photography</span></div><span class="media-badge">Photography</span></div>
             </div>
         </div>
 
@@ -753,24 +603,9 @@
         <h2 class="section-title">Things I want<br>to make.</h2>
         <p class="ideas-intro">Not everything has a brief yet. Here are some ideas living rent free in my head. Concepts I'd make tomorrow if someone handed me the budget.</p>
         <div class="ideas-grid reveal">
-            <div class="idea-card">
-                <div class="idea-number">01</div>
-                <h3 class="idea-title">Your idea here</h3>
-                <p class="idea-desc">Tell me your first spec idea and I'll write the card.</p>
-                <span class="idea-tag">Concept</span>
-            </div>
-            <div class="idea-card">
-                <div class="idea-number">02</div>
-                <h3 class="idea-title">Your idea here</h3>
-                <p class="idea-desc">Tell me your second spec idea and I'll write the card.</p>
-                <span class="idea-tag">Concept</span>
-            </div>
-            <div class="idea-card">
-                <div class="idea-number">03</div>
-                <h3 class="idea-title">Your idea here</h3>
-                <p class="idea-desc">Tell me your third spec idea and I'll write the card.</p>
-                <span class="idea-tag">Concept</span>
-            </div>
+            <div class="idea-card"><div class="idea-number">01</div><h3 class="idea-title">Your idea here</h3><p class="idea-desc">Tell me your first spec idea and I'll write the card.</p><span class="idea-tag">Concept</span></div>
+            <div class="idea-card"><div class="idea-number">02</div><h3 class="idea-title">Your idea here</h3><p class="idea-desc">Tell me your second spec idea and I'll write the card.</p><span class="idea-tag">Concept</span></div>
+            <div class="idea-card"><div class="idea-number">03</div><h3 class="idea-title">Your idea here</h3><p class="idea-desc">Tell me your third spec idea and I'll write the card.</p><span class="idea-tag">Concept</span></div>
         </div>
     </section>
 
@@ -783,8 +618,6 @@
             <p>We've shipped two games and we're not stopping there.</p>
         </div>
         <div class="games-grid reveal">
-
-            <!-- Hearth & Honey -->
             <div class="game-card">
                 <div class="game-thumb">🌿</div>
                 <div class="game-info">
@@ -801,8 +634,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Raccoon Remedies -->
             <div class="game-card">
                 <div class="game-thumb">🦝</div>
                 <div class="game-info">
@@ -819,8 +650,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Game 03 -->
             <div class="game-card">
                 <div class="game-thumb">👾</div>
                 <div class="game-info">
@@ -830,11 +659,9 @@
                     <span class="game-status in-dev">In Development</span>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <span class="footer-name">Dave Dibbs</span>
         <span class="footer-copy">© 2026 — All rights reserved</span>
@@ -846,11 +673,9 @@
     </footer>
 
     <script>
-        // Magic I Dot
         const iDot = document.getElementById('iDot');
         const dotShapes = ['✮', '♥', '✎', '☺', '▶', '☮', '✚'];
         let dotIndex = 0;
-
         setInterval(() => {
             iDot.style.opacity = '0';
             iDot.style.transform = 'translateX(-50%) scale(0) rotate(180deg)';
@@ -862,53 +687,38 @@
             }, 250);
         }, 2000);
 
-        // Bubble Cursor
         const cursorDot = document.getElementById('cursorDot');
         let lastBubbleTime = 0;
-
         document.addEventListener('mousemove', (e) => {
             cursorDot.style.left = e.clientX + 'px';
             cursorDot.style.top = e.clientY + 'px';
-
             const now = Date.now();
             if (now - lastBubbleTime < 35) return;
             lastBubbleTime = now;
-
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
-
             const size = Math.random() * 30 + 14;
             const startOpacity = Math.random() * 0.3 + 0.55;
             const drift = (Math.random() - 0.5) * 80;
             const rise = Math.random() * 140 + 80;
             const duration = Math.random() * 1200 + 1000;
             const wobble = (Math.random() - 0.5) * 30;
-
-            bubble.style.cssText = `
-                left: ${e.clientX}px; top: ${e.clientY}px;
-                width: ${size}px; height: ${size}px;
-                opacity: ${startOpacity}; transition: none;
-            `;
-
+            bubble.style.cssText = `left: ${e.clientX}px; top: ${e.clientY}px; width: ${size}px; height: ${size}px; opacity: ${startOpacity}; transition: none;`;
             document.body.appendChild(bubble);
             bubble.getBoundingClientRect();
-
             bubble.style.transition = `left ${duration}ms ease-out, top ${duration}ms ease-in-out, opacity ${duration * 0.8}ms ease-in, transform ${duration}ms ease-out`;
             bubble.style.left = (e.clientX + drift + wobble) + 'px';
             bubble.style.top = (e.clientY - rise) + 'px';
             bubble.style.opacity = '0';
             bubble.style.transform = `translate(-50%, -50%) scale(${Math.random() * 0.3 + 0.9})`;
-
             setTimeout(() => bubble.remove(), duration);
         });
 
-        // Nav scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
