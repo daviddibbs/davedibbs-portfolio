@@ -16,6 +16,7 @@
             --border: rgba(232, 223, 208, 0.1);
             --purple: #7C5CBF;
             --purple-dim: rgba(124, 92, 191, 0.3);
+            --gutter: 80px;
         }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--cream); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
@@ -27,7 +28,7 @@
         .cursor-dot { width: 6px; height: 6px; background: var(--cream); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
         .bubble { position: fixed; pointer-events: none; z-index: 99998; border-radius: 50%; border: 1.5px solid rgba(124,92,191,0.9); background: rgba(124,92,191,0.2); transform: translate(-50%,-50%); box-shadow: 0 0 8px rgba(124,92,191,0.3), inset 0 0 8px rgba(255,255,255,0.05); }
 
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px var(--gutter); display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
         nav.scrolled { background: rgba(0,0,0,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
         .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--cream); text-decoration: none; transition: color 0.2s ease; }
         .nav-logo:hover { color: var(--purple); }
@@ -37,7 +38,7 @@
         .nav-links a:hover { color: var(--purple); }
         .nav-links a:hover::after { width: 100%; }
 
-        #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; }
+        #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--gutter) 80px; }
         .hero-tag { font-size: 13px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 24px; }
         .hero-name { font-family: 'Syne', sans-serif; font-size: clamp(72px, 12vw, 180px); font-weight: 800; line-height: 0.9; letter-spacing: -0.03em; color: var(--cream); margin-bottom: 40px; }
         .hero-name > span { display: block; }
@@ -49,7 +50,8 @@
         .hero-scroll::before { content: ''; width: 40px; height: 1px; background: var(--purple); display: block; animation: scrollLine 2s ease-in-out infinite; }
         @keyframes scrollLine { 0%,100%{width:40px;opacity:0.5;} 50%{width:60px;opacity:1;} }
 
-        section { padding: 140px 48px; }
+        /* All sections use consistent gutter */
+        section { padding: 140px var(--gutter); }
         .section-label { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 60px; display: flex; align-items: center; gap: 16px; }
         .section-label::before { content: ''; width: 30px; height: 1px; background: var(--purple); }
         .section-title { font-family: 'Syne', sans-serif; font-size: clamp(36px,5vw,72px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 40px; }
@@ -66,8 +68,7 @@
         .stat-label { font-size: 13px; color: var(--cream-dim); letter-spacing: 0.05em; }
 
         /* PROJECTS */
-        #projects { border-top: 1px solid var(--border); padding-left: 0; padding-right: 0; }
-        #projects .section-label, #projects .section-title { padding: 0 48px; }
+        #projects { border-top: 1px solid var(--border); }
         .projects-feed { display: flex; flex-direction: column; gap: 80px; }
         .project-entry { display: flex; flex-direction: column; gap: 2px; }
 
@@ -83,8 +84,6 @@
         .media-ph-text { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.3; }
         .coming-soon-overlay { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
         .coming-soon-text { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-dim); border: 1px solid var(--border); padding: 8px 20px; }
-
-        /* Text panels — pure black, content floats */
         .editorial-panel { background: var(--bg); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
         .editorial-top { display: flex; flex-direction: column; gap: 12px; }
         .editorial-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 10px; }
@@ -111,7 +110,7 @@
         .static-cell-label { position: absolute; bottom: 10px; left: 10px; font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.4; background: rgba(0,0,0,0.6); padding: 3px 8px; backdrop-filter: blur(4px); }
 
         /* PORTRAIT PROJECT */
-        .portrait-project { padding: 0 48px; }
+        .portrait-project { }
         .pp-header { margin-bottom: 40px; }
         .pp-client { font-family: 'Syne', sans-serif; font-size: clamp(40px,5vw,80px); font-weight: 800; color: var(--cream); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 12px; }
         .pp-title { font-family: 'Syne', sans-serif; font-size: clamp(16px,1.8vw,22px); font-weight: 700; color: var(--purple); margin-bottom: 20px; }
@@ -134,8 +133,6 @@
         .split-block.text-left .split-media { order: 2; }
         .split-block.text-right .split-panel { order: 2; border-left: 1px solid var(--border); }
         .split-block.text-right .split-media { order: 1; }
-
-        /* Text panel — pure black */
         .split-panel { background: var(--bg); padding: 56px 48px; display: flex; flex-direction: column; gap: 20px; }
         .split-panel-top { display: flex; flex-direction: column; gap: 12px; flex: 1; }
         .split-media.portrait-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -161,8 +158,7 @@
         .split-sub-title { font-family: 'Syne', sans-serif; font-size: clamp(14px,1.2vw,18px); font-weight: 700; color: var(--purple); letter-spacing: -0.01em; }
 
         /* EXPERIENTIAL */
-        #experiential { border-top: 1px solid var(--border); padding-left: 0; padding-right: 0; }
-        #experiential .section-label, #experiential .section-title { padding: 0 48px; }
+        #experiential { border-top: 1px solid var(--border); }
         .exp-feed { display: flex; flex-direction: column; gap: 80px; }
         .exp-entry { display: flex; flex-direction: column; gap: 2px; }
         .exp-editorial { display: grid; grid-template-columns: 1.4fr 1fr; min-height: 400px; }
@@ -173,8 +169,6 @@
         .exp-media { position: relative; overflow: hidden; background: var(--bg-subtle); }
         .exp-media iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .exp-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; align-items: center; justify-content: center; }
-
-        /* Experiential text panel — pure black */
         .exp-panel { background: var(--bg); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 16px; }
         .exp-editorial.flipped .exp-panel { border-left: none; border-right: 1px solid var(--border); }
         .exp-client { font-family: 'Syne', sans-serif; font-size: clamp(36px,3.5vw,60px); font-weight: 800; color: var(--cream); line-height: 0.9; letter-spacing: -0.03em; }
@@ -220,7 +214,7 @@
         .game-qr-link { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; color: var(--purple); text-decoration: none; transition: color 0.2s ease; }
         .game-qr-link:hover { color: var(--cream); }
 
-        footer { border-top: 1px solid var(--border); padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+        footer { border-top: 1px solid var(--border); padding: 48px var(--gutter); display: flex; justify-content: space-between; align-items: center; }
         .footer-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--cream); }
         .footer-copy { font-size: 13px; color: var(--cream-dim); }
         .footer-links { display: flex; gap: 24px; }
@@ -231,8 +225,9 @@
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            nav { padding: 20px 24px; } .nav-links { display: none; }
-            section { padding: 80px 24px; } #hero { padding: 0 24px 60px; }
+            :root { --gutter: 24px; }
+            nav { padding: 20px var(--gutter); } .nav-links { display: none; }
+            section { padding: 80px var(--gutter); } #hero { padding: 0 var(--gutter) 60px; }
             .about-grid, .pp-body { grid-template-columns: 1fr; gap: 40px; }
             .editorial-block, .editorial-block.flipped, .split-block.portrait-media, .split-block.portrait-media.text-right, .split-block.single-media, .split-block.portrait-single-media, .exp-editorial, .exp-editorial.flipped, .exp-editorial.hsbc-layout { grid-template-columns: 1fr; }
             .editorial-block.flipped .editorial-media, .editorial-block.flipped .editorial-panel, .split-block.text-left .split-panel, .split-block.text-left .split-media, .split-block.text-right .split-panel, .split-block.text-right .split-media { order: unset; border: none; }
@@ -240,9 +235,8 @@
             .portrait-quad { grid-template-columns: repeat(2,1fr); }
             .portrait-pair-cell { width: 100%; }
             .statics-grid.three-col, .statics-grid.four-col { grid-template-columns: 1fr 1fr; }
-            .portrait-project { padding: 0 24px; }
             .ideas-grid, .games-grid { grid-template-columns: 1fr; }
-            footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
+            footer { padding: 32px var(--gutter); flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
@@ -294,7 +288,6 @@
     <section id="projects">
         <span class="section-label">Projects</span>
         <h2 class="section-title">Selected work.</h2>
-
         <div class="projects-feed">
 
             <div class="project-entry reveal">
@@ -472,14 +465,11 @@
     <section id="experiential">
         <span class="section-label">Experiential</span>
         <h2 class="section-title">Immersive brand<br>experiences.</h2>
-
         <div class="exp-feed">
 
             <div class="exp-entry reveal">
                 <div class="exp-editorial">
-                    <div class="exp-media">
-                        <iframe src="https://drive.google.com/file/d/1_Z-E8_NBj_8ooyvYn8IbDhSgwi6vcjZl/preview" allow="autoplay" frameborder="0"></iframe>
-                    </div>
+                    <div class="exp-media"><iframe src="https://drive.google.com/file/d/1_Z-E8_NBj_8ooyvYn8IbDhSgwi6vcjZl/preview" allow="autoplay" frameborder="0"></iframe></div>
                     <div class="exp-panel">
                         <span class="editorial-label">Immersive Experience</span>
                         <h3 class="exp-client">Secret Cinema</h3>
@@ -497,9 +487,7 @@
 
             <div class="exp-entry reveal">
                 <div class="exp-editorial hsbc-layout">
-                    <div class="exp-media">
-                        <iframe src="https://drive.google.com/file/d/1KXQOa7VZWBiZKYOWlDvjYmcoCUkDTMkm/preview" allow="autoplay" frameborder="0"></iframe>
-                    </div>
+                    <div class="exp-media"><iframe src="https://drive.google.com/file/d/1KXQOa7VZWBiZKYOWlDvjYmcoCUkDTMkm/preview" allow="autoplay" frameborder="0"></iframe></div>
                     <div class="exp-panel">
                         <span class="editorial-label">OOH / Experiential</span>
                         <h3 class="exp-client">HSBC</h3>
@@ -520,9 +508,7 @@
 
             <div class="exp-entry reveal">
                 <div class="exp-editorial flipped">
-                    <div class="exp-media">
-                        <div class="exp-media-inner"><span class="media-ph-icon">◼</span></div>
-                    </div>
+                    <div class="exp-media"><div class="exp-media-inner"><span class="media-ph-icon">◼</span></div></div>
                     <div class="exp-panel">
                         <span class="editorial-label">Experiential Event</span>
                         <h3 class="exp-client">Amazon</h3>
@@ -557,38 +543,17 @@
         <div class="games-grid reveal">
             <div class="game-card">
                 <div class="game-thumb">🌿</div>
-                <div class="game-info">
-                    <p class="game-platform">Lunch Ghost — Game 01 / iOS</p>
-                    <h3 class="game-title">Hearth &amp; Honey</h3>
-                    <p class="game-desc">A gardening and interior design game. Cosy, creative and completely absorbing.</p>
-                    <span class="game-status">Shipped ✓</span>
-                </div>
-                <div class="game-qr">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/hearth-and-honey/id1659834055&amp;color=E8DFD0&amp;bgcolor=0f0f0f" alt="Scan to download">
-                    <div class="game-qr-text"><span class="game-qr-label">Scan to download</span><a href="https://apps.apple.com/gb/app/hearth-and-honey/id1659834055" target="_blank" class="game-qr-link">View on App Store</a></div>
-                </div>
+                <div class="game-info"><p class="game-platform">Lunch Ghost — Game 01 / iOS</p><h3 class="game-title">Hearth &amp; Honey</h3><p class="game-desc">A gardening and interior design game. Cosy, creative and completely absorbing.</p><span class="game-status">Shipped ✓</span></div>
+                <div class="game-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/hearth-and-honey/id1659834055&amp;color=E8DFD0&amp;bgcolor=0f0f0f" alt="Scan to download"><div class="game-qr-text"><span class="game-qr-label">Scan to download</span><a href="https://apps.apple.com/gb/app/hearth-and-honey/id1659834055" target="_blank" class="game-qr-link">View on App Store</a></div></div>
             </div>
             <div class="game-card">
                 <div class="game-thumb">🦝</div>
-                <div class="game-info">
-                    <p class="game-platform">Lunch Ghost — Game 02 / iOS</p>
-                    <h3 class="game-title">Raccoon Remedies</h3>
-                    <p class="game-desc">A colour sorting game. Satisfying, strategic and surprisingly hard to put down.</p>
-                    <span class="game-status">Shipped ✓</span>
-                </div>
-                <div class="game-qr">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/raccoon-remedies/id6746204716&amp;color=E8DFD0&amp;bgcolor=0f0f0f" alt="Scan to download">
-                    <div class="game-qr-text"><span class="game-qr-label">Scan to download</span><a href="https://apps.apple.com/gb/app/raccoon-remedies/id6746204716" target="_blank" class="game-qr-link">View on App Store</a></div>
-                </div>
+                <div class="game-info"><p class="game-platform">Lunch Ghost — Game 02 / iOS</p><h3 class="game-title">Raccoon Remedies</h3><p class="game-desc">A colour sorting game. Satisfying, strategic and surprisingly hard to put down.</p><span class="game-status">Shipped ✓</span></div>
+                <div class="game-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/raccoon-remedies/id6746204716&amp;color=E8DFD0&amp;bgcolor=0f0f0f" alt="Scan to download"><div class="game-qr-text"><span class="game-qr-label">Scan to download</span><a href="https://apps.apple.com/gb/app/raccoon-remedies/id6746204716" target="_blank" class="game-qr-link">View on App Store</a></div></div>
             </div>
             <div class="game-card">
                 <div class="game-thumb">👾</div>
-                <div class="game-info">
-                    <p class="game-platform">Lunch Ghost — Game 03</p>
-                    <h3 class="game-title">In Development</h3>
-                    <p class="game-desc">Something new is brewing at Lunch Ghost. Watch this space.</p>
-                    <span class="game-status in-dev">In Development</span>
-                </div>
+                <div class="game-info"><p class="game-platform">Lunch Ghost — Game 03</p><h3 class="game-title">In Development</h3><p class="game-desc">Something new is brewing at Lunch Ghost. Watch this space.</p><span class="game-status in-dev">In Development</span></div>
             </div>
         </div>
     </section>
