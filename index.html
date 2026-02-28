@@ -20,11 +20,9 @@
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
 
-        /* CURSOR */
         .cursor-dot { width: 6px; height: 6px; background: var(--cream); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
         .bubble { position: fixed; pointer-events: none; z-index: 99998; border-radius: 50%; border: 1.5px solid rgba(124,92,191,0.9); background: rgba(124,92,191,0.2); transform: translate(-50%,-50%); box-shadow: 0 0 8px rgba(124,92,191,0.3), inset 0 0 8px rgba(255,255,255,0.05); }
 
-        /* NAV */
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
         nav.scrolled { background: rgba(12,12,12,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
         .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--cream); text-decoration: none; transition: color 0.2s ease; }
@@ -35,7 +33,6 @@
         .nav-links a:hover { color: var(--purple); }
         .nav-links a:hover::after { width: 100%; }
 
-        /* HERO */
         #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; }
         .hero-tag { font-size: 13px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 24px; }
         .hero-name { font-family: 'Syne', sans-serif; font-size: clamp(72px, 12vw, 180px); font-weight: 800; line-height: 0.9; letter-spacing: -0.03em; color: var(--cream); margin-bottom: 40px; }
@@ -48,13 +45,11 @@
         .hero-scroll::before { content: ''; width: 40px; height: 1px; background: var(--purple); display: block; animation: scrollLine 2s ease-in-out infinite; }
         @keyframes scrollLine { 0%,100%{width:40px;opacity:0.5;} 50%{width:60px;opacity:1;} }
 
-        /* SECTIONS */
         section { padding: 120px 48px; }
         .section-label { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 60px; display: flex; align-items: center; gap: 16px; }
         .section-label::before { content: ''; width: 30px; height: 1px; background: var(--purple); }
         .section-title { font-family: 'Syne', sans-serif; font-size: clamp(36px,5vw,72px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 40px; }
 
-        /* ABOUT */
         #about { border-top: 1px solid var(--border); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
         .about-text p { font-size: 18px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 24px; }
@@ -65,20 +60,10 @@
         .stat-number { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: var(--purple); line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 13px; color: var(--cream-dim); letter-spacing: 0.05em; }
 
-        /* ============================================ */
-        /* PROJECTS                                      */
-        /* ============================================ */
         #projects { border-top: 1px solid var(--border); padding-left: 0; padding-right: 0; }
-        #projects .section-label,
-        #projects .section-title { padding: 0 48px; }
+        #projects .section-label, #projects .section-title { padding: 0 48px; }
 
-        /* --- EDITORIAL BLOCK (Channel 4, Lexus) --- */
-        .editorial-block {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            border-bottom: 1px solid var(--border);
-            min-height: 480px;
-        }
+        .editorial-block { display: grid; grid-template-columns: 1.4fr 1fr; border-bottom: 1px solid var(--border); min-height: 480px; }
         .editorial-block.flipped { grid-template-columns: 1fr 1.4fr; }
         .editorial-block.flipped .editorial-media { order: 2; }
         .editorial-block.flipped .editorial-panel { order: 1; border-left: none; border-right: 1px solid var(--border); }
@@ -101,7 +86,7 @@
         .es-num { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--cream); line-height: 1; margin-bottom: 4px; display: block; }
         .es-label { font-size: 11px; color: var(--cream-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; }
 
-        /* --- PORTRAIT PROJECT (Play-Doh) --- */
+        /* PLAY-DOH — portrait project */
         .portrait-project { padding: 80px 48px; border-bottom: 1px solid var(--border); }
         .pp-header { margin-bottom: 40px; }
         .pp-client { font-family: 'Syne', sans-serif; font-size: clamp(40px,5vw,80px); font-weight: 800; color: var(--cream); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 12px; }
@@ -109,104 +94,45 @@
         .pp-body { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 48px; }
         .pp-desc { font-size: 16px; color: var(--cream-dim); line-height: 1.85; }
         .pp-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; }
-        .portrait-quad { display: grid; grid-template-columns: repeat(4, 200px); gap: 2px; }
-        .portrait-cell { position: relative; overflow: hidden; background: var(--bg-secondary); }
-        .portrait-cell.p4 { aspect-ratio: 9/16; width: 200px; }
+
+        /* Portrait quad — 4 videos in a row */
+        .portrait-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+        .portrait-cell { position: relative; overflow: hidden; background: var(--bg-secondary); aspect-ratio: 9/16; }
         .portrait-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .portrait-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .portrait-cell-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.4; position: absolute; bottom: 12px; left: 12px; background: rgba(12,12,12,0.7); padding: 3px 8px; backdrop-filter: blur(4px); }
 
-        /* --- SPLIT BLOCK (TalkTalk, Disney, BAT, Adobe) --- */
-        /* Base split block */
-        .split-block {
-            display: grid;
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* Portrait pair variant — narrower media so portraits aren't giant */
-        .split-block.portrait-media {
-            grid-template-columns: 1.2fr 0.8fr;
-        }
-        .split-block.portrait-media.text-right {
-            grid-template-columns: 0.8fr 1.2fr;
-        }
-
-        /* Single video variant — equal columns */
-        .split-block.single-media {
-            grid-template-columns: 1fr 1fr;
-            min-height: 500px;
-        }
-
-        /* text-left: panel left, media right */
-        .split-block.text-left .split-panel {
-            order: 1;
-            border-right: 1px solid var(--border);
-        }
+        /* SPLIT BLOCK */
+        .split-block { display: grid; border-bottom: 1px solid var(--border); }
+        .split-block.portrait-media { grid-template-columns: 1.2fr 0.8fr; }
+        .split-block.portrait-media.text-right { grid-template-columns: 0.8fr 1.2fr; }
+        .split-block.single-media { grid-template-columns: 1fr 1fr; min-height: 500px; }
+        .split-block.text-left .split-panel { order: 1; border-right: 1px solid var(--border); }
         .split-block.text-left .split-media { order: 2; }
-
-        /* text-right: media left, panel right */
-        .split-block.text-right .split-panel {
-            order: 2;
-            border-left: 1px solid var(--border);
-        }
+        .split-block.text-right .split-panel { order: 2; border-left: 1px solid var(--border); }
         .split-block.text-right .split-media { order: 1; }
-
-        /* Panel */
-        .split-panel {
-            background: var(--bg-secondary);
-            padding: 48px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+        .split-panel { background: var(--bg-secondary); padding: 48px 40px; display: flex; flex-direction: column; gap: 20px; }
         .split-panel-top { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-
-        /* Media — portrait pair */
-        .split-media.portrait-pair {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            background: var(--bg);
-        }
-        .portrait-pair-cell {
-            position: relative;
-            aspect-ratio: 9/16;
-            overflow: hidden;
-            background: var(--bg-secondary);
-        }
+        .split-media.portrait-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+        .portrait-pair-cell { position: relative; aspect-ratio: 9/16; overflow: hidden; background: var(--bg-secondary); }
         .portrait-pair-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .portrait-pair-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-
-        /* Media — single video (fills panel height) */
-        .split-media.single-video {
-            position: relative;
-            overflow: hidden;
-            background: var(--bg-secondary);
-            min-height: 400px;
-        }
+        .split-media.single-video { position: relative; overflow: hidden; background: var(--bg-secondary); min-height: 400px; }
         .split-media.single-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .split-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-
-        /* Split panel text elements */
         .split-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 10px; }
         .split-label::before { content: ''; width: 20px; height: 1px; background: var(--purple); flex-shrink: 0; }
         .split-client { font-family: 'Syne', sans-serif; font-size: clamp(40px,4vw,68px); font-weight: 800; color: var(--cream); line-height: 0.88; letter-spacing: -0.03em; }
         .split-campaign { font-family: 'Syne', sans-serif; font-size: clamp(15px,1.4vw,20px); font-weight: 700; color: var(--purple); letter-spacing: -0.01em; }
         .split-desc { font-size: 15px; color: var(--cream-dim); line-height: 1.85; }
         .split-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; align-self: flex-start; }
-
-        /* Stats box — under description */
         .split-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
         .ss-item { background: var(--bg); padding: 14px 16px; border: 1px solid var(--border); }
         .ss-num { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; color: var(--cream); line-height: 1; margin-bottom: 3px; display: block; }
         .ss-label { font-size: 11px; color: var(--cream-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; }
-
-        /* Sub-campaign section inside text panel (BAT, Adobe) */
         .split-sub { border-top: 1px solid var(--border); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
         .split-sub-title { font-family: 'Syne', sans-serif; font-size: clamp(14px,1.2vw,18px); font-weight: 700; color: var(--purple); letter-spacing: -0.01em; }
 
-        /* ============================================ */
-        /* EXPERIENTIAL                                  */
-        /* ============================================ */
+        /* EXPERIENTIAL */
         #experiential { border-top: 1px solid var(--border); background: var(--bg-secondary); padding-left: 0; padding-right: 0; }
         #experiential .section-label, #experiential .section-title { padding: 0 48px; }
         .exp-block { border-bottom: 1px solid var(--border); }
@@ -263,7 +189,6 @@
         .game-qr-link { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; color: var(--purple); text-decoration: none; transition: color 0.2s ease; }
         .game-qr-link:hover { color: var(--cream); }
 
-        /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 48px; display: flex; justify-content: space-between; align-items: center; }
         .footer-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--cream); }
         .footer-copy { font-size: 13px; color: var(--cream-dim); }
@@ -271,30 +196,17 @@
         .footer-links a { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-dim); text-decoration: none; transition: color 0.2s ease; }
         .footer-links a:hover { color: var(--purple); }
 
-        /* REVEAL */
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav { padding: 20px 24px; }
-            .nav-links { display: none; }
-            section { padding: 80px 24px; }
-            #hero { padding: 0 24px 60px; }
+            nav { padding: 20px 24px; } .nav-links { display: none; }
+            section { padding: 80px 24px; } #hero { padding: 0 24px 60px; }
             .about-grid, .pp-body { grid-template-columns: 1fr; gap: 40px; }
-            .editorial-block, .editorial-block.flipped,
-            .split-block.portrait-media, .split-block.portrait-media.text-right,
-            .split-block.single-media,
-            .exp-editorial, .exp-editorial.flipped, .exp-editorial.hsbc-layout { grid-template-columns: 1fr; }
-            .editorial-block.flipped .editorial-media,
-            .editorial-block.flipped .editorial-panel,
-            .split-block.text-left .split-panel,
-            .split-block.text-left .split-media,
-            .split-block.text-right .split-panel,
-            .split-block.text-right .split-media { order: unset; border: none; }
+            .editorial-block, .editorial-block.flipped, .split-block.portrait-media, .split-block.portrait-media.text-right, .split-block.single-media, .exp-editorial, .exp-editorial.flipped, .exp-editorial.hsbc-layout { grid-template-columns: 1fr; }
+            .editorial-block.flipped .editorial-media, .editorial-block.flipped .editorial-panel, .split-block.text-left .split-panel, .split-block.text-left .split-media, .split-block.text-right .split-panel, .split-block.text-right .split-media { order: unset; border: none; }
             .split-panel { border-top: 1px solid var(--border); }
             .portrait-quad { grid-template-columns: repeat(2,1fr); }
-            .portrait-cell.p4 { width: 100%; }
             .portrait-pair-cell { width: 100%; }
             .ideas-grid, .games-grid { grid-template-columns: 1fr; }
             footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
@@ -346,14 +258,11 @@
         </div>
     </section>
 
-    <!-- ================================ -->
-    <!-- PROJECTS                          -->
-    <!-- ================================ -->
     <section id="projects">
         <span class="section-label">Projects</span>
         <h2 class="section-title">Selected work.</h2>
 
-        <!-- 1. CHANNEL 4 — editorial, media left, text right -->
+        <!-- CHANNEL 4 -->
         <div class="editorial-block reveal">
             <div class="editorial-media">
                 <iframe src="https://drive.google.com/file/d/1jJLoWnPmR0g8cQhCe-fZIfhNKSiaLAwq/preview" allow="autoplay" frameborder="0"></iframe>
@@ -374,13 +283,10 @@
             </div>
         </div>
 
-        <!-- 2. LEXUS — editorial flipped, text left, media right -->
+        <!-- LEXUS -->
         <div class="editorial-block flipped reveal">
             <div class="editorial-media">
-                <div class="editorial-media-inner">
-                    <span class="media-ph-icon">▶</span>
-                    <span class="media-ph-text">Video Coming Soon</span>
-                </div>
+                <div class="editorial-media-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">Video Coming Soon</span></div>
                 <div class="coming-soon-overlay"><span class="coming-soon-text">Video Coming Soon</span></div>
             </div>
             <div class="editorial-panel">
@@ -393,7 +299,7 @@
             </div>
         </div>
 
-        <!-- 3. PLAY-DOH — portrait project -->
+        <!-- PLAY-DOH — 4 real videos now live -->
         <div class="portrait-project reveal">
             <div class="pp-header">
                 <h3 class="pp-client">Play-Doh</h3>
@@ -404,21 +310,33 @@
                 <div><span class="pp-tag">Creative Concept / Social Series</span></div>
             </div>
             <div class="portrait-quad">
-                <div class="portrait-cell p4"><div class="portrait-cell-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">Ep 1</span></div></div>
-                <div class="portrait-cell p4"><div class="portrait-cell-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">Ep 2</span></div></div>
-                <div class="portrait-cell p4"><div class="portrait-cell-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">Ep 3</span></div></div>
-                <div class="portrait-cell p4"><div class="portrait-cell-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">BTS</span></div></div>
+                <div class="portrait-cell">
+                    <iframe src="https://drive.google.com/file/d/1wP3y4NciIdBg6WRXl94o1SNKEgsNszv0/preview" allow="autoplay" frameborder="0"></iframe>
+                    <span class="portrait-cell-label">Episode 1</span>
+                </div>
+                <div class="portrait-cell">
+                    <iframe src="https://drive.google.com/file/d/1ym1qiMKiaDsb1a6DFbSpLssZol_9ignG/preview" allow="autoplay" frameborder="0"></iframe>
+                    <span class="portrait-cell-label">Episode 2</span>
+                </div>
+                <div class="portrait-cell">
+                    <iframe src="https://drive.google.com/file/d/16dM5Qe7Z5NV25ISXo4ADggUGWPnfYNQH/preview" allow="autoplay" frameborder="0"></iframe>
+                    <span class="portrait-cell-label">Episode 3</span>
+                </div>
+                <div class="portrait-cell">
+                    <iframe src="https://drive.google.com/file/d/18bzmqtb56pmY7Eu7uFBxwTjGWcf35DH_/preview" allow="autoplay" frameborder="0"></iframe>
+                    <span class="portrait-cell-label">Saying What They See</span>
+                </div>
             </div>
         </div>
 
-        <!-- 4. TALKTALK — split, text RIGHT, portrait pair LEFT -->
+        <!-- TALKTALK -->
         <div class="split-block portrait-media text-right reveal">
             <div class="split-media portrait-pair">
                 <div class="portrait-pair-cell">
-                    <div class="portrait-pair-cell-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">9:16 Video</span></div>
+                    <iframe src="https://drive.google.com/file/d/1TO3sMLdkHk4eZsbqiWJOaF-kEElCnSjO/preview" allow="autoplay" frameborder="0"></iframe>
                 </div>
                 <div class="portrait-pair-cell">
-                    <div class="portrait-pair-cell-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">9:16 Video</span></div>
+                    <iframe src="https://drive.google.com/file/d/1sfF9msYohBTA2HCAj9dC8oPK2mLDsy-3/preview" allow="autoplay" frameborder="0"></iframe>
                 </div>
             </div>
             <div class="split-panel">
@@ -432,7 +350,7 @@
             </div>
         </div>
 
-        <!-- 5. DISNEY — split, text LEFT, portrait pair RIGHT -->
+        <!-- DISNEY -->
         <div class="split-block portrait-media text-left reveal">
             <div class="split-panel">
                 <div class="split-panel-top">
@@ -453,7 +371,7 @@
             </div>
         </div>
 
-        <!-- 6. BAT — split, text LEFT, single video RIGHT -->
+        <!-- BAT -->
         <div class="split-block single-media text-left reveal">
             <div class="split-panel">
                 <div class="split-panel-top">
@@ -477,7 +395,7 @@
             </div>
         </div>
 
-        <!-- 7. ADOBE — split, text RIGHT, single video LEFT -->
+        <!-- ADOBE -->
         <div class="split-block single-media text-right reveal">
             <div class="split-media single-video">
                 <iframe src="https://drive.google.com/file/d/1Idvz58Vj32lN3OqjFfXivBaQ2rRkNKb2/preview" allow="autoplay" frameborder="0"></iframe>
@@ -505,14 +423,10 @@
 
     </section>
 
-    <!-- ================================ -->
-    <!-- EXPERIENTIAL                      -->
-    <!-- ================================ -->
     <section id="experiential">
         <span class="section-label">Experiential</span>
         <h2 class="section-title">Immersive brand<br>experiences.</h2>
 
-        <!-- SECRET CINEMA -->
         <div class="exp-block reveal">
             <div class="exp-editorial">
                 <div class="exp-media">
@@ -533,7 +447,6 @@
             </div>
         </div>
 
-        <!-- HSBC -->
         <div class="exp-block reveal">
             <div class="exp-editorial hsbc-layout">
                 <div class="exp-media">
@@ -549,7 +462,6 @@
             </div>
         </div>
 
-        <!-- AMAZON -->
         <div class="exp-block reveal">
             <div class="exp-editorial flipped">
                 <div class="exp-media">
@@ -567,7 +479,6 @@
 
     </section>
 
-    <!-- IDEAS -->
     <section id="ideas">
         <span class="section-label">Ideas</span>
         <h2 class="section-title">Things I want<br>to make.</h2>
@@ -579,7 +490,6 @@
         </div>
     </section>
 
-    <!-- SIDE HUSTLE -->
     <section id="sidehustle">
         <span class="section-label">Side Hustle</span>
         <h2 class="section-title">I also make<br>video games.</h2>
