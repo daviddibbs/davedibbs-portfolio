@@ -8,10 +8,13 @@
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #0c0c0c; --bg-secondary: #141414;
-            --cream: #E8DFD0; --cream-dim: rgba(232, 223, 208, 0.5);
+            --bg: #000000;
+            --bg-secondary: #141414;
+            --cream: #E8DFD0;
+            --cream-dim: rgba(232, 223, 208, 0.5);
             --border: rgba(232, 223, 208, 0.1);
-            --purple: #7C5CBF; --purple-dim: rgba(124, 92, 191, 0.3);
+            --purple: #7C5CBF;
+            --purple-dim: rgba(124, 92, 191, 0.3);
         }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--cream); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
@@ -24,7 +27,7 @@
         .bubble { position: fixed; pointer-events: none; z-index: 99998; border-radius: 50%; border: 1.5px solid rgba(124,92,191,0.9); background: rgba(124,92,191,0.2); transform: translate(-50%,-50%); box-shadow: 0 0 8px rgba(124,92,191,0.3), inset 0 0 8px rgba(255,255,255,0.05); }
 
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
-        nav.scrolled { background: rgba(12,12,12,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+        nav.scrolled { background: rgba(0,0,0,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
         .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--cream); text-decoration: none; transition: color 0.2s ease; }
         .nav-logo:hover { color: var(--purple); }
         .nav-links { display: flex; gap: 40px; list-style: none; }
@@ -45,11 +48,12 @@
         .hero-scroll::before { content: ''; width: 40px; height: 1px; background: var(--purple); display: block; animation: scrollLine 2s ease-in-out infinite; }
         @keyframes scrollLine { 0%,100%{width:40px;opacity:0.5;} 50%{width:60px;opacity:1;} }
 
-        section { padding: 120px 48px; }
+        section { padding: 140px 48px; }
         .section-label { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 60px; display: flex; align-items: center; gap: 16px; }
         .section-label::before { content: ''; width: 30px; height: 1px; background: var(--purple); }
         .section-title { font-family: 'Syne', sans-serif; font-size: clamp(36px,5vw,72px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 40px; }
 
+        /* ABOUT */
         #about { border-top: 1px solid var(--border); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
         .about-text p { font-size: 18px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 24px; }
@@ -60,21 +64,29 @@
         .stat-number { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: var(--purple); line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 13px; color: var(--cream-dim); letter-spacing: 0.05em; }
 
+        /* ================================ */
+        /* PROJECTS                          */
+        /* ================================ */
         #projects { border-top: 1px solid var(--border); padding-left: 0; padding-right: 0; }
         #projects .section-label, #projects .section-title { padding: 0 48px; }
 
-        .editorial-block { display: grid; grid-template-columns: 1.4fr 1fr; border-bottom: 1px solid var(--border); min-height: 480px; }
+        /* Project feed — 80px breathing room between each project */
+        .projects-feed { display: flex; flex-direction: column; gap: 80px; }
+        .project-entry { display: flex; flex-direction: column; gap: 2px; }
+
+        /* EDITORIAL BLOCK */
+        .editorial-block { display: grid; grid-template-columns: 1.4fr 1fr; min-height: 480px; }
         .editorial-block.flipped { grid-template-columns: 1fr 1.4fr; }
         .editorial-block.flipped .editorial-media { order: 2; }
         .editorial-block.flipped .editorial-panel { order: 1; border-left: none; border-right: 1px solid var(--border); }
         .editorial-media { position: relative; overflow: hidden; background: var(--bg-secondary); }
         .editorial-media iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .editorial-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+        .editorial-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
         .media-ph-icon { font-size: 32px; opacity: 0.15; }
         .media-ph-text { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.3; }
-        .coming-soon-overlay { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; background: rgba(12,12,12,0.5); }
+        .coming-soon-overlay { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
         .coming-soon-text { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-dim); border: 1px solid var(--border); padding: 8px 20px; }
-        .editorial-panel { background: var(--bg-secondary); padding: 48px 40px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+        .editorial-panel { background: var(--bg-secondary); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
         .editorial-top { display: flex; flex-direction: column; gap: 12px; }
         .editorial-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 10px; }
         .editorial-label::before { content: ''; width: 20px; height: 1px; background: var(--purple); flex-shrink: 0; }
@@ -86,39 +98,69 @@
         .es-num { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--cream); line-height: 1; margin-bottom: 4px; display: block; }
         .es-label { font-size: 11px; color: var(--cream-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; }
 
-        /* PLAY-DOH — portrait project */
-        .portrait-project { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+        /* STATICS ROW — supporting images below editorial blocks */
+        .statics-row { display: flex; flex-direction: column; gap: 0; }
+        .statics-header { padding: 20px 0 14px; display: flex; align-items: center; gap: 10px; }
+        .statics-header::before { content: ''; width: 16px; height: 1px; background: var(--purple); flex-shrink: 0; }
+        .statics-header span { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); }
+        .statics-grid { display: grid; gap: 2px; }
+        .statics-grid.three-col { grid-template-columns: repeat(3, 1fr); }
+        .statics-grid.four-col { grid-template-columns: repeat(4, 1fr); }
+        .static-cell { background: var(--bg-secondary); aspect-ratio: 16/9; position: relative; overflow: hidden; }
+        .static-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .static-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .static-cell-label { position: absolute; bottom: 10px; left: 10px; font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.4; background: rgba(0,0,0,0.6); padding: 3px 8px; backdrop-filter: blur(4px); }
+
+        /* PORTRAIT PROJECT */
+        .portrait-project { padding: 0 48px; }
         .pp-header { margin-bottom: 40px; }
         .pp-client { font-family: 'Syne', sans-serif; font-size: clamp(40px,5vw,80px); font-weight: 800; color: var(--cream); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 12px; }
         .pp-title { font-family: 'Syne', sans-serif; font-size: clamp(16px,1.8vw,22px); font-weight: 700; color: var(--purple); margin-bottom: 20px; }
         .pp-body { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 48px; }
         .pp-desc { font-size: 16px; color: var(--cream-dim); line-height: 1.85; }
         .pp-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; }
-
-        /* Portrait quad — 4 videos in a row */
         .portrait-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
         .portrait-cell { position: relative; overflow: hidden; background: var(--bg-secondary); aspect-ratio: 9/16; }
         .portrait-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .portrait-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-        .portrait-cell-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.4; position: absolute; bottom: 12px; left: 12px; background: rgba(12,12,12,0.7); padding: 3px 8px; backdrop-filter: blur(4px); }
+        .portrait-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .portrait-cell-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.5; position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 3px 8px; backdrop-filter: blur(4px); }
 
         /* SPLIT BLOCK */
-        .split-block { display: grid; border-bottom: 1px solid var(--border); }
+        .split-block { display: grid; }
         .split-block.portrait-media { grid-template-columns: 1.2fr 0.8fr; }
         .split-block.portrait-media.text-right { grid-template-columns: 0.8fr 1.2fr; }
         .split-block.single-media { grid-template-columns: 1fr 1fr; min-height: 500px; }
+        .split-block.portrait-single-media { grid-template-columns: 1.2fr 0.8fr; min-height: 500px; }
         .split-block.text-left .split-panel { order: 1; border-right: 1px solid var(--border); }
         .split-block.text-left .split-media { order: 2; }
         .split-block.text-right .split-panel { order: 2; border-left: 1px solid var(--border); }
         .split-block.text-right .split-media { order: 1; }
-        .split-panel { background: var(--bg-secondary); padding: 48px 40px; display: flex; flex-direction: column; gap: 20px; }
+        .split-panel { background: var(--bg-secondary); padding: 56px 48px; display: flex; flex-direction: column; gap: 20px; }
         .split-panel-top { display: flex; flex-direction: column; gap: 12px; flex: 1; }
         .split-media.portrait-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
         .portrait-pair-cell { position: relative; aspect-ratio: 9/16; overflow: hidden; background: var(--bg-secondary); }
         .portrait-pair-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .portrait-pair-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .portrait-pair-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
         .split-media.single-video { position: relative; overflow: hidden; background: var(--bg-secondary); min-height: 400px; }
         .split-media.single-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Portrait single — Jill Scott, centred and floating on black */
+        .split-media.portrait-single {
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+        }
+        .portrait-single-cell {
+            width: 220px;
+            aspect-ratio: 9/16;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+        .portrait-single-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
         .split-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 10px; }
         .split-label::before { content: ''; width: 20px; height: 1px; background: var(--purple); flex-shrink: 0; }
         .split-client { font-family: 'Syne', sans-serif; font-size: clamp(40px,4vw,68px); font-weight: 800; color: var(--cream); line-height: 0.88; letter-spacing: -0.03em; }
@@ -133,19 +175,19 @@
         .split-sub-title { font-family: 'Syne', sans-serif; font-size: clamp(14px,1.2vw,18px); font-weight: 700; color: var(--purple); letter-spacing: -0.01em; }
 
         /* EXPERIENTIAL */
-        #experiential { border-top: 1px solid var(--border); background: var(--bg-secondary); padding-left: 0; padding-right: 0; }
+        #experiential { border-top: 1px solid var(--border); background: var(--bg); padding-left: 0; padding-right: 0; }
         #experiential .section-label, #experiential .section-title { padding: 0 48px; }
-        .exp-block { border-bottom: 1px solid var(--border); }
-        .exp-block:last-child { border-bottom: none; }
+        .exp-feed { display: flex; flex-direction: column; gap: 80px; }
+        .exp-entry { display: flex; flex-direction: column; gap: 2px; }
         .exp-editorial { display: grid; grid-template-columns: 1.4fr 1fr; min-height: 400px; }
         .exp-editorial.flipped { grid-template-columns: 1fr 1.4fr; }
         .exp-editorial.flipped .exp-media { order: 2; }
         .exp-editorial.flipped .exp-panel { order: 1; border-left: none; border-right: 1px solid var(--border); }
         .exp-editorial.hsbc-layout { grid-template-columns: 350px 1fr; }
-        .exp-media { position: relative; overflow: hidden; background: var(--bg); }
+        .exp-media { position: relative; overflow: hidden; background: var(--bg-secondary); }
         .exp-media iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .exp-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; align-items: center; justify-content: center; }
-        .exp-panel { background: var(--bg); padding: 48px 40px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+        .exp-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; align-items: center; justify-content: center; }
+        .exp-panel { background: var(--bg-secondary); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 16px; }
         .exp-editorial.flipped .exp-panel { border-left: none; border-right: 1px solid var(--border); }
         .exp-client { font-family: 'Syne', sans-serif; font-size: clamp(36px,3.5vw,60px); font-weight: 800; color: var(--cream); line-height: 0.9; letter-spacing: -0.03em; }
         .exp-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--purple); }
@@ -153,7 +195,8 @@
         .exp-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; align-self: flex-start; }
         .exp-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
         .exp-img { background: var(--bg-secondary); aspect-ratio: 16/9; position: relative; overflow: hidden; }
-        .exp-img-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; align-items: center; justify-content: center; }
+        .exp-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .exp-img-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; align-items: center; justify-content: center; }
 
         /* IDEAS */
         #ideas { border-top: 1px solid var(--border); }
@@ -174,7 +217,7 @@
         .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
         .game-card { background: var(--bg-secondary); overflow: hidden; cursor: none; border: 1px solid var(--border); transition: border-color 0.3s ease; display: flex; flex-direction: column; }
         .game-card:hover { border-color: var(--purple); }
-        .game-thumb { aspect-ratio: 16/9; background: linear-gradient(135deg,#1a1a1a,#252525); display: flex; align-items: center; justify-content: center; font-size: 48px; opacity: 0.4; transition: opacity 0.3s ease; }
+        .game-thumb { aspect-ratio: 16/9; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; align-items: center; justify-content: center; font-size: 48px; opacity: 0.4; transition: opacity 0.3s ease; }
         .game-card:hover .game-thumb { opacity: 0.7; }
         .game-info { padding: 24px; flex: 1; }
         .game-platform { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; }
@@ -203,11 +246,13 @@
             nav { padding: 20px 24px; } .nav-links { display: none; }
             section { padding: 80px 24px; } #hero { padding: 0 24px 60px; }
             .about-grid, .pp-body { grid-template-columns: 1fr; gap: 40px; }
-            .editorial-block, .editorial-block.flipped, .split-block.portrait-media, .split-block.portrait-media.text-right, .split-block.single-media, .exp-editorial, .exp-editorial.flipped, .exp-editorial.hsbc-layout { grid-template-columns: 1fr; }
+            .editorial-block, .editorial-block.flipped, .split-block.portrait-media, .split-block.portrait-media.text-right, .split-block.single-media, .split-block.portrait-single-media, .exp-editorial, .exp-editorial.flipped, .exp-editorial.hsbc-layout { grid-template-columns: 1fr; }
             .editorial-block.flipped .editorial-media, .editorial-block.flipped .editorial-panel, .split-block.text-left .split-panel, .split-block.text-left .split-media, .split-block.text-right .split-panel, .split-block.text-right .split-media { order: unset; border: none; }
-            .split-panel { border-top: 1px solid var(--border); }
+            .split-panel, .editorial-panel { border-top: 1px solid var(--border); }
             .portrait-quad { grid-template-columns: repeat(2,1fr); }
             .portrait-pair-cell { width: 100%; }
+            .statics-grid.three-col, .statics-grid.four-col { grid-template-columns: 1fr 1fr; }
+            .portrait-project { padding: 0 24px; }
             .ideas-grid, .games-grid { grid-template-columns: 1fr; }
             footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
         }
@@ -262,223 +307,284 @@
         <span class="section-label">Projects</span>
         <h2 class="section-title">Selected work.</h2>
 
-        <!-- CHANNEL 4 -->
-        <div class="editorial-block reveal">
-            <div class="editorial-media">
-                <iframe src="https://drive.google.com/file/d/1jJLoWnPmR0g8cQhCe-fZIfhNKSiaLAwq/preview" allow="autoplay" frameborder="0"></iframe>
-            </div>
-            <div class="editorial-panel">
-                <div class="editorial-top">
-                    <span class="editorial-label">Social Campaign</span>
-                    <h3 class="editorial-client">Channel 4</h3>
-                    <h4 class="editorial-title">#SU2CRewards</h4>
-                    <p class="editorial-desc">Inspired by Kickstarter's donation model, I created a Twitter campaign where donating more unlocked better rewards, using Channel 4's celebrity connections to make each reward unmissable. One of the rewards was getting to insult Piers Morgan. He approved it. The internet loved it.</p>
-                </div>
-                <div class="editorial-stats">
-                    <div class="es-item"><span class="es-num">239M</span><span class="es-label">Impressions</span></div>
-                    <div class="es-item"><span class="es-num">62M</span><span class="es-label">Reach</span></div>
-                    <div class="es-item"><span class="es-num">£7,720</span><span class="es-label">Raised via Twitter</span></div>
-                    <div class="es-item"><span class="es-num">23K</span><span class="es-label">Mentions</span></div>
-                </div>
-            </div>
-        </div>
+        <div class="projects-feed">
 
-        <!-- LEXUS -->
-        <div class="editorial-block flipped reveal">
-            <div class="editorial-media">
-                <div class="editorial-media-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">Video Coming Soon</span></div>
-                <div class="coming-soon-overlay"><span class="coming-soon-text">Video Coming Soon</span></div>
-            </div>
-            <div class="editorial-panel">
-                <div class="editorial-top">
-                    <span class="editorial-label">Social Video</span>
-                    <h3 class="editorial-client">Lexus</h3>
-                    <h4 class="editorial-title">GRWM: The Lexus ES</h4>
-                    <p class="editorial-desc">An influencer-inspired GRWM format where the car does the getting ready. Instead of a traditional product walkthrough, I reframed the ES's features through a format that already lived natively in the social space. The result is something that feels like content, not advertising. Visually beautiful, socially fluent.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- PLAY-DOH — 4 real videos now live -->
-        <div class="portrait-project reveal">
-            <div class="pp-header">
-                <h3 class="pp-client">Play-Doh</h3>
-                <h4 class="pp-title">Play-Doh Professors</h4>
-            </div>
-            <div class="pp-body">
-                <p class="pp-desc">What if kids were the teachers? I flipped the brief entirely. Instead of showing adults how to use Play-Doh, the kids gave the instructions and the adults had to follow. Because "doing it wrong" is your adult brain talking, not theirs. A five-part social series including BTS, guess the creation and dream pet episodes.</p>
-                <div><span class="pp-tag">Creative Concept / Social Series</span></div>
-            </div>
-            <div class="portrait-quad">
-                <div class="portrait-cell">
-                    <iframe src="https://drive.google.com/file/d/1wP3y4NciIdBg6WRXl94o1SNKEgsNszv0/preview" allow="autoplay" frameborder="0"></iframe>
-                    <span class="portrait-cell-label">Episode 1</span>
-                </div>
-                <div class="portrait-cell">
-                    <iframe src="https://drive.google.com/file/d/1ym1qiMKiaDsb1a6DFbSpLssZol_9ignG/preview" allow="autoplay" frameborder="0"></iframe>
-                    <span class="portrait-cell-label">Episode 2</span>
-                </div>
-                <div class="portrait-cell">
-                    <iframe src="https://drive.google.com/file/d/16dM5Qe7Z5NV25ISXo4ADggUGWPnfYNQH/preview" allow="autoplay" frameborder="0"></iframe>
-                    <span class="portrait-cell-label">Episode 3</span>
-                </div>
-                <div class="portrait-cell">
-                    <iframe src="https://drive.google.com/file/d/18bzmqtb56pmY7Eu7uFBxwTjGWcf35DH_/preview" allow="autoplay" frameborder="0"></iframe>
-                    <span class="portrait-cell-label">Saying What They See</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- TALKTALK -->
-        <div class="split-block portrait-media text-right reveal">
-            <div class="split-media portrait-pair">
-                <div class="portrait-pair-cell">
-                    <iframe src="https://drive.google.com/file/d/1TO3sMLdkHk4eZsbqiWJOaF-kEElCnSjO/preview" allow="autoplay" frameborder="0"></iframe>
-                </div>
-                <div class="portrait-pair-cell">
-                    <iframe src="https://drive.google.com/file/d/1sfF9msYohBTA2HCAj9dC8oPK2mLDsy-3/preview" allow="autoplay" frameborder="0"></iframe>
-                </div>
-            </div>
-            <div class="split-panel">
-                <div class="split-panel-top">
-                    <span class="split-label">AI Design / Social Campaign</span>
-                    <h3 class="split-client">TalkTalk</h3>
-                    <h4 class="split-campaign">Can You Watch This A Sec?</h4>
-                    <p class="split-desc">TalkTalk came to us with a direction: Surprisingly Better. The challenge was making that feel native to social without it reading like an ad. I found the answer in a trending format where creators leave their phone recording and walk away. Using AI and casting, whatever people left behind got surprisingly better while they were gone. Ask someone to watch your cake a second, come back to find it's tripled in size. The brand message was baked into the format. No one had to say a word.</p>
-                </div>
-                <span class="split-tag">AI Design / Social</span>
-            </div>
-        </div>
-
-        <!-- DISNEY -->
-        <div class="split-block portrait-media text-left reveal">
-            <div class="split-panel">
-                <div class="split-panel-top">
-                    <span class="split-label">Social Story / Wellness</span>
-                    <h3 class="split-client">Disney UK</h3>
-                    <h4 class="split-campaign">Breathe with Disney</h4>
-                    <p class="split-desc">Instagram Stories designed to teach young followers box breathing through Disney animations that respond in real time to each inhale, hold and exhale. Wellness, but with a dash of magic.</p>
-                </div>
-                <span class="split-tag">Social Story</span>
-            </div>
-            <div class="split-media portrait-pair">
-                <div class="portrait-pair-cell">
-                    <iframe src="https://drive.google.com/file/d/1IWKZjLp10WZwlTiGQ34EBKj9qbX2GSGH/preview" allow="autoplay" frameborder="0"></iframe>
-                </div>
-                <div class="portrait-pair-cell">
-                    <iframe src="https://drive.google.com/file/d/1hnoL5411FJelwtBApWStSBBX3nIFosgx/preview" allow="autoplay" frameborder="0"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <!-- BAT -->
-        <div class="split-block single-media text-left reveal">
-            <div class="split-panel">
-                <div class="split-panel-top">
-                    <span class="split-label">Social Video / Influencer</span>
-                    <h3 class="split-client">BAT</h3>
-                    <h4 class="split-campaign">Your Flavour, Your Style</h4>
-                    <p class="split-desc">To celebrate the launch of the Vuse Reload colour series, I created and directed a video showing each device in their own colour world. Three distinct environments built around the moment and mood of each device, transitioning smoothly between each.</p>
-                    <div class="split-stats">
-                        <div class="ss-item"><span class="ss-num">25%</span><span class="ss-label">Engagement boost</span></div>
-                        <div class="ss-item"><span class="ss-num">#1</span><span class="ss-label">Best performing post</span></div>
+            <!-- ① CHANNEL 4 -->
+            <div class="project-entry reveal">
+                <div class="editorial-block">
+                    <div class="editorial-media">
+                        <iframe src="https://drive.google.com/file/d/1jJLoWnPmR0g8cQhCe-fZIfhNKSiaLAwq/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                    <div class="editorial-panel">
+                        <div class="editorial-top">
+                            <span class="editorial-label">Social Campaign</span>
+                            <h3 class="editorial-client">Channel 4</h3>
+                            <h4 class="editorial-title">#SU2CRewards</h4>
+                            <p class="editorial-desc">Inspired by Kickstarter's donation model, I created a Twitter campaign where donating more unlocked better rewards, using Channel 4's celebrity connections to make each reward unmissable. One of the rewards was getting to insult Piers Morgan. He approved it. The internet loved it.</p>
+                        </div>
+                        <div class="editorial-stats">
+                            <div class="es-item"><span class="es-num">239M</span><span class="es-label">Impressions</span></div>
+                            <div class="es-item"><span class="es-num">62M</span><span class="es-label">Reach</span></div>
+                            <div class="es-item"><span class="es-num">£7,720</span><span class="es-label">Raised via Twitter</span></div>
+                            <div class="es-item"><span class="es-num">23K</span><span class="es-label">Mentions</span></div>
+                        </div>
                     </div>
                 </div>
-                <div class="split-sub">
-                    <h4 class="split-sub-title">Velo x Ayo Beatz</h4>
-                    <p class="split-desc">A 90s-inspired music video concept created for Velo with influencer Ayo Beatz. Built around nostalgia and creative energy, the campaign brought a fresh cultural angle to the brand without it ever feeling like an ad.</p>
-                    <span class="split-tag">Influencer / Music Video</span>
-                </div>
-            </div>
-            <div class="split-media single-video">
-                <iframe src="https://drive.google.com/file/d/1jF23PkM8jy1kEchmSNC7axzi44bgHDdu/preview" allow="autoplay" frameborder="0"></iframe>
-            </div>
-        </div>
-
-        <!-- ADOBE -->
-        <div class="split-block single-media text-right reveal">
-            <div class="split-media single-video">
-                <iframe src="https://drive.google.com/file/d/1Idvz58Vj32lN3OqjFfXivBaQ2rRkNKb2/preview" allow="autoplay" frameborder="0"></iframe>
-            </div>
-            <div class="split-panel">
-                <div class="split-panel-top">
-                    <span class="split-label">Influencer / Social Campaign</span>
-                    <h3 class="split-client">Adobe</h3>
-                    <h4 class="split-campaign">Photoshop IRL</h4>
-                    <p class="split-desc">The brief was to show everyone can Photoshop. My thought? It's probably easier than real life. I built an influencer campaign that challenged novices to test their real-world skills against the tools in Photoshop, using Ameziene as the hero creator.</p>
-                    <div class="split-stats">
-                        <div class="ss-item"><span class="ss-num">13.7M</span><span class="ss-label">Impressions</span></div>
-                        <div class="ss-item"><span class="ss-num">1.9M</span><span class="ss-label">Interactions</span></div>
-                        <div class="ss-item"><span class="ss-num">407K</span><span class="ss-label">Engagements</span></div>
-                        <div class="ss-item"><span class="ss-num">61.2K</span><span class="ss-label">Post engagements</span></div>
+                <!-- Press reaction & rewards — drop images here when ready -->
+                <div class="statics-row">
+                    <div class="statics-header"><span>The Rewards &amp; Press Reaction</span></div>
+                    <div class="statics-grid three-col">
+                        <div class="static-cell"><div class="static-cell-inner"><span class="media-ph-icon">◼</span></div><span class="static-cell-label">Reward Tweets</span></div>
+                        <div class="static-cell"><div class="static-cell-inner"><span class="media-ph-icon">◼</span></div><span class="static-cell-label">Piers Morgan Reaction</span></div>
+                        <div class="static-cell"><div class="static-cell-inner"><span class="media-ph-icon">◼</span></div><span class="static-cell-label">Press Coverage</span></div>
                     </div>
                 </div>
-                <div class="split-sub">
-                    <h4 class="split-sub-title">Anyone Can Photoshop</h4>
-                    <p class="split-desc">Adobe Express is so intuitive that literally anyone can use it. To prove it, we brought in Jill Scott and let her loose. The campaign showed that great creative doesn't need technical expertise, just the right tool and the right person to pick it up.</p>
-                    <span class="split-tag">Influencer / Social</span>
+            </div>
+
+            <!-- ② LEXUS -->
+            <div class="project-entry reveal">
+                <div class="editorial-block flipped">
+                    <div class="editorial-media">
+                        <div class="editorial-media-inner"><span class="media-ph-icon">▶</span><span class="media-ph-text">Video Coming Soon</span></div>
+                        <div class="coming-soon-overlay"><span class="coming-soon-text">Video Coming Soon</span></div>
+                    </div>
+                    <div class="editorial-panel">
+                        <div class="editorial-top">
+                            <span class="editorial-label">Social Video</span>
+                            <h3 class="editorial-client">Lexus</h3>
+                            <h4 class="editorial-title">GRWM: The Lexus ES</h4>
+                            <p class="editorial-desc">An influencer-inspired GRWM format where the car does the getting ready. Instead of a traditional product walkthrough, I reframed the ES's features through a format that already lived natively in the social space. The result is something that feels like content, not advertising. Visually beautiful, socially fluent.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!-- ③ PLAY-DOH -->
+            <div class="project-entry reveal">
+                <div class="portrait-project">
+                    <div class="pp-header">
+                        <h3 class="pp-client">Play-Doh</h3>
+                        <h4 class="pp-title">Play-Doh Professors</h4>
+                    </div>
+                    <div class="pp-body">
+                        <p class="pp-desc">What if kids were the teachers? I flipped the brief entirely. Instead of showing adults how to use Play-Doh, the kids gave the instructions and the adults had to follow. Because "doing it wrong" is your adult brain talking, not theirs. A five-part social series including BTS, guess the creation and dream pet episodes.</p>
+                        <div><span class="pp-tag">Creative Concept / Social Series</span></div>
+                    </div>
+                    <div class="portrait-quad">
+                        <div class="portrait-cell">
+                            <iframe src="https://drive.google.com/file/d/1wP3y4NciIdBg6WRXl94o1SNKEgsNszv0/preview" allow="autoplay" frameborder="0"></iframe>
+                            <span class="portrait-cell-label">Episode 1</span>
+                        </div>
+                        <div class="portrait-cell">
+                            <iframe src="https://drive.google.com/file/d/1ym1qiMKiaDsb1a6DFbSpLssZol_9ignG/preview" allow="autoplay" frameborder="0"></iframe>
+                            <span class="portrait-cell-label">Episode 2</span>
+                        </div>
+                        <div class="portrait-cell">
+                            <iframe src="https://drive.google.com/file/d/16dM5Qe7Z5NV25ISXo4ADggUGWPnfYNQH/preview" allow="autoplay" frameborder="0"></iframe>
+                            <span class="portrait-cell-label">Episode 3</span>
+                        </div>
+                        <div class="portrait-cell">
+                            <iframe src="https://drive.google.com/file/d/18bzmqtb56pmY7Eu7uFBxwTjGWcf35DH_/preview" allow="autoplay" frameborder="0"></iframe>
+                            <span class="portrait-cell-label">Saying What They See</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ④ TALKTALK -->
+            <div class="project-entry reveal">
+                <div class="split-block portrait-media text-right">
+                    <div class="split-media portrait-pair">
+                        <div class="portrait-pair-cell">
+                            <iframe src="https://drive.google.com/file/d/1TO3sMLdkHk4eZsbqiWJOaF-kEElCnSjO/preview" allow="autoplay" frameborder="0"></iframe>
+                        </div>
+                        <div class="portrait-pair-cell">
+                            <iframe src="https://drive.google.com/file/d/1sfF9msYohBTA2HCAj9dC8oPK2mLDsy-3/preview" allow="autoplay" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="split-panel">
+                        <div class="split-panel-top">
+                            <span class="split-label">AI Design / Social Campaign</span>
+                            <h3 class="split-client">TalkTalk</h3>
+                            <h4 class="split-campaign">Can You Watch This A Sec?</h4>
+                            <p class="split-desc">TalkTalk came to us with a direction: Surprisingly Better. The challenge was making that feel native to social without it reading like an ad. I found the answer in a trending format where creators leave their phone recording and walk away. Using AI and casting, whatever people left behind got surprisingly better while they were gone. Ask someone to watch your cake a second, come back to find it's tripled in size. The brand message was baked into the format. No one had to say a word.</p>
+                        </div>
+                        <span class="split-tag">AI Design / Social</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⑤ DISNEY -->
+            <div class="project-entry reveal">
+                <div class="split-block portrait-media text-left">
+                    <div class="split-panel">
+                        <div class="split-panel-top">
+                            <span class="split-label">Social Story / Wellness</span>
+                            <h3 class="split-client">Disney UK</h3>
+                            <h4 class="split-campaign">Breathe with Disney</h4>
+                            <p class="split-desc">Instagram Stories designed to teach young followers box breathing through Disney animations that respond in real time to each inhale, hold and exhale. Wellness, but with a dash of magic.</p>
+                        </div>
+                        <span class="split-tag">Social Story</span>
+                    </div>
+                    <div class="split-media portrait-pair">
+                        <div class="portrait-pair-cell">
+                            <iframe src="https://drive.google.com/file/d/1IWKZjLp10WZwlTiGQ34EBKj9qbX2GSGH/preview" allow="autoplay" frameborder="0"></iframe>
+                        </div>
+                        <div class="portrait-pair-cell">
+                            <iframe src="https://drive.google.com/file/d/1hnoL5411FJelwtBApWStSBBX3nIFosgx/preview" allow="autoplay" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⑥ BAT -->
+            <div class="project-entry reveal">
+                <div class="split-block single-media text-left">
+                    <div class="split-panel">
+                        <div class="split-panel-top">
+                            <span class="split-label">Social Video / Influencer</span>
+                            <h3 class="split-client">BAT</h3>
+                            <h4 class="split-campaign">Your Flavour, Your Style</h4>
+                            <p class="split-desc">To celebrate the launch of the Vuse Reload colour series, I created and directed a video showing each device in their own colour world. Three distinct environments built around the moment and mood of each device, transitioning smoothly between each.</p>
+                            <div class="split-stats">
+                                <div class="ss-item"><span class="ss-num">25%</span><span class="ss-label">Engagement boost</span></div>
+                                <div class="ss-item"><span class="ss-num">#1</span><span class="ss-label">Best performing post</span></div>
+                            </div>
+                        </div>
+                        <div class="split-sub">
+                            <h4 class="split-sub-title">Velo x Ayo Beatz</h4>
+                            <p class="split-desc">A 90s-inspired music video concept created for Velo with influencer Ayo Beatz. Built around nostalgia and creative energy, the campaign brought a fresh cultural angle to the brand without it ever feeling like an ad.</p>
+                            <span class="split-tag">Influencer / Music Video</span>
+                        </div>
+                    </div>
+                    <div class="split-media single-video">
+                        <iframe src="https://drive.google.com/file/d/1jF23PkM8jy1kEchmSNC7axzi44bgHDdu/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⑦ ADOBE — Photoshop IRL -->
+            <div class="project-entry reveal">
+                <div class="split-block single-media text-right">
+                    <div class="split-media single-video">
+                        <iframe src="https://drive.google.com/file/d/1Idvz58Vj32lN3OqjFfXivBaQ2rRkNKb2/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                    <div class="split-panel">
+                        <div class="split-panel-top">
+                            <span class="split-label">Influencer / Social Campaign</span>
+                            <h3 class="split-client">Adobe</h3>
+                            <h4 class="split-campaign">Photoshop IRL</h4>
+                            <p class="split-desc">The brief was to show everyone can Photoshop. My thought? It's probably easier than real life. I built an influencer campaign that challenged novices to test their real-world skills against the tools in Photoshop, using Ameziene as the hero creator.</p>
+                            <div class="split-stats">
+                                <div class="ss-item"><span class="ss-num">13.7M</span><span class="ss-label">Impressions</span></div>
+                                <div class="ss-item"><span class="ss-num">1.9M</span><span class="ss-label">Interactions</span></div>
+                                <div class="ss-item"><span class="ss-num">407K</span><span class="ss-label">Engagements</span></div>
+                                <div class="ss-item"><span class="ss-num">61.2K</span><span class="ss-label">Post engagements</span></div>
+                            </div>
+                        </div>
+                        <span class="split-tag">Influencer / Social</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⑧ ADOBE — Anyone Can / Jill Scott (portrait, floating) -->
+            <div class="project-entry reveal">
+                <div class="split-block portrait-single-media text-left">
+                    <div class="split-panel">
+                        <div class="split-panel-top">
+                            <span class="split-label">Influencer / Social Campaign</span>
+                            <h3 class="split-client">Adobe</h3>
+                            <h4 class="split-campaign">Anyone Can Photoshop</h4>
+                            <p class="split-desc">Adobe Express is so intuitive that literally anyone can use it. To prove it, we brought in Jill Scott and let her loose. The campaign showed that great creative doesn't need technical expertise, just the right tool and the right person to pick it up.</p>
+                        </div>
+                        <span class="split-tag">Influencer / Social</span>
+                    </div>
+                    <!-- Jill Scott's 9:16 centred and floating on black -->
+                    <div class="split-media portrait-single">
+                        <div class="portrait-single-cell">
+                            <iframe src="https://drive.google.com/file/d/1KXf6oM-jUhdZL3BdoHu1EC5sNfVetDZI/preview" allow="autoplay" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
+    <!-- EXPERIENTIAL -->
     <section id="experiential">
         <span class="section-label">Experiential</span>
         <h2 class="section-title">Immersive brand<br>experiences.</h2>
 
-        <div class="exp-block reveal">
-            <div class="exp-editorial">
-                <div class="exp-media">
-                    <iframe src="https://drive.google.com/file/d/1_Z-E8_NBj_8ooyvYn8IbDhSgwi6vcjZl/preview" allow="autoplay" frameborder="0"></iframe>
-                </div>
-                <div class="exp-panel">
-                    <span class="editorial-label">Immersive Experience</span>
-                    <h3 class="exp-client">Secret Cinema</h3>
-                    <h4 class="exp-title">Moulin Rouge</h4>
-                    <p class="exp-desc">As a Creative at Secret Cinema I worked across every part of the production. From art directing sets and building immersive audience experiences, to co-editing the wrap trailer for our Moulin Rouge run. One day building sets, the next directing audience tracks and developing the online journey.</p>
-                    <span class="exp-tag">Immersive / Events</span>
-                </div>
-            </div>
-            <div class="exp-images">
-                <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
-                <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
-                <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
-            </div>
-        </div>
+        <div class="exp-feed">
 
-        <div class="exp-block reveal">
-            <div class="exp-editorial hsbc-layout">
-                <div class="exp-media">
-                    <iframe src="https://drive.google.com/file/d/1KXQOa7VZWBiZKYOWlDvjYmcoCUkDTMkm/preview" allow="autoplay" frameborder="0"></iframe>
+            <!-- SECRET CINEMA -->
+            <div class="exp-entry reveal">
+                <div class="exp-editorial">
+                    <div class="exp-media">
+                        <iframe src="https://drive.google.com/file/d/1_Z-E8_NBj_8ooyvYn8IbDhSgwi6vcjZl/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                    <div class="exp-panel">
+                        <span class="editorial-label">Immersive Experience</span>
+                        <h3 class="exp-client">Secret Cinema</h3>
+                        <h4 class="exp-title">Moulin Rouge</h4>
+                        <p class="exp-desc">As a Creative at Secret Cinema I worked across every part of the production. From art directing sets and building immersive audience experiences, to co-editing the wrap trailer for our Moulin Rouge run. One day building sets, the next directing audience tracks and developing the online journey.</p>
+                        <span class="exp-tag">Immersive / Events</span>
+                    </div>
                 </div>
-                <div class="exp-panel">
-                    <span class="editorial-label">OOH / Experiential</span>
-                    <h3 class="exp-client">HSBC</h3>
-                    <h4 class="exp-title">Places of Pride</h4>
-                    <p class="exp-desc">Inspired by Google's map pins and London's Blue Plaques, I created a campaign that drew attention to the specific places that meant something to LGBTQ+ people. Locations previously hidden for safety, now celebrated. The concept extended from OOH and bus wraps to UGC and full branch takeovers for Birmingham Pride.</p>
-                    <span class="exp-tag">OOH / Experiential</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="exp-block reveal">
-            <div class="exp-editorial flipped">
-                <div class="exp-media">
-                    <div class="exp-media-inner"><span class="media-ph-icon">◼</span></div>
-                </div>
-                <div class="exp-panel">
-                    <span class="editorial-label">Experiential Event</span>
-                    <h3 class="exp-client">Amazon</h3>
-                    <h4 class="exp-title">After We Fell — Prime Screeners</h4>
-                    <p class="exp-desc">An immersive fan screening event for the YA romance film After We Fell. I designed every zone to be as Instagrammable as possible on an extremely limited budget. Each space was built around audience engagement with subtle nods to the film and maximum shareable moments.</p>
-                    <span class="exp-tag">Experiential</span>
+                <!-- Photography below — drop images in here -->
+                <div class="exp-images">
+                    <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
+                    <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
+                    <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
                 </div>
             </div>
-        </div>
 
+            <!-- HSBC -->
+            <div class="exp-entry reveal">
+                <div class="exp-editorial hsbc-layout">
+                    <div class="exp-media">
+                        <iframe src="https://drive.google.com/file/d/1KXQOa7VZWBiZKYOWlDvjYmcoCUkDTMkm/preview" allow="autoplay" frameborder="0"></iframe>
+                    </div>
+                    <div class="exp-panel">
+                        <span class="editorial-label">OOH / Experiential</span>
+                        <h3 class="exp-client">HSBC</h3>
+                        <h4 class="exp-title">Places of Pride</h4>
+                        <p class="exp-desc">Inspired by Google's map pins and London's Blue Plaques, I created a campaign that drew attention to the specific places that meant something to LGBTQ+ people. Locations previously hidden for safety, now celebrated. The concept extended from OOH and bus wraps to UGC and full branch takeovers for Birmingham Pride.</p>
+                        <span class="exp-tag">OOH / Experiential</span>
+                    </div>
+                </div>
+                <!-- OOH statics below — drop images in here -->
+                <div class="statics-row">
+                    <div class="statics-header"><span>OOH, Branch Wraps &amp; UGC</span></div>
+                    <div class="statics-grid three-col">
+                        <div class="static-cell"><div class="static-cell-inner"><span class="media-ph-icon">◼</span></div><span class="static-cell-label">OOH Pins</span></div>
+                        <div class="static-cell"><div class="static-cell-inner"><span class="media-ph-icon">◼</span></div><span class="static-cell-label">Branch Wrap</span></div>
+                        <div class="static-cell"><div class="static-cell-inner"><span class="media-ph-icon">◼</span></div><span class="static-cell-label">Bus Wrap</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AMAZON -->
+            <div class="exp-entry reveal">
+                <div class="exp-editorial flipped">
+                    <div class="exp-media">
+                        <div class="exp-media-inner"><span class="media-ph-icon">◼</span></div>
+                    </div>
+                    <div class="exp-panel">
+                        <span class="editorial-label">Experiential Event</span>
+                        <h3 class="exp-client">Amazon</h3>
+                        <h4 class="exp-title">After We Fell — Prime Screeners</h4>
+                        <p class="exp-desc">An immersive fan screening event for the YA romance film After We Fell. I designed every zone to be as Instagrammable as possible on an extremely limited budget. Each space was built around audience engagement with subtle nods to the film and maximum shareable moments.</p>
+                        <span class="exp-tag">Experiential</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
+    <!-- IDEAS -->
     <section id="ideas">
         <span class="section-label">Ideas</span>
         <h2 class="section-title">Things I want<br>to make.</h2>
@@ -490,6 +596,7 @@
         </div>
     </section>
 
+    <!-- SIDE HUSTLE -->
     <section id="sidehustle">
         <span class="section-label">Side Hustle</span>
         <h2 class="section-title">I also make<br>video games.</h2>
