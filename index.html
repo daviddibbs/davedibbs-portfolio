@@ -9,7 +9,8 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg: #000000;
-            --bg-secondary: #141414;
+            --bg-secondary: #000000;
+            --bg-subtle: #0f0f0f;
             --cream: #E8DFD0;
             --cream-dim: rgba(232, 223, 208, 0.5);
             --border: rgba(232, 223, 208, 0.1);
@@ -59,18 +60,14 @@
         .about-text p { font-size: 18px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 24px; }
         .about-text p strong { color: var(--cream); font-weight: 500; }
         .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-        .stat { background: var(--bg-secondary); padding: 32px; border: 1px solid var(--border); transition: border-color 0.3s ease; }
+        .stat { background: var(--bg-subtle); padding: 32px; border: 1px solid var(--border); transition: border-color 0.3s ease; }
         .stat:hover { border-color: var(--purple-dim); }
         .stat-number { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: var(--purple); line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 13px; color: var(--cream-dim); letter-spacing: 0.05em; }
 
-        /* ================================ */
-        /* PROJECTS                          */
-        /* ================================ */
+        /* PROJECTS */
         #projects { border-top: 1px solid var(--border); padding-left: 0; padding-right: 0; }
         #projects .section-label, #projects .section-title { padding: 0 48px; }
-
-        /* Project feed — 80px breathing room between each project */
         .projects-feed { display: flex; flex-direction: column; gap: 80px; }
         .project-entry { display: flex; flex-direction: column; gap: 2px; }
 
@@ -79,14 +76,16 @@
         .editorial-block.flipped { grid-template-columns: 1fr 1.4fr; }
         .editorial-block.flipped .editorial-media { order: 2; }
         .editorial-block.flipped .editorial-panel { order: 1; border-left: none; border-right: 1px solid var(--border); }
-        .editorial-media { position: relative; overflow: hidden; background: var(--bg-secondary); }
+        .editorial-media { position: relative; overflow: hidden; background: var(--bg-subtle); }
         .editorial-media iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .editorial-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+        .editorial-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
         .media-ph-icon { font-size: 32px; opacity: 0.15; }
         .media-ph-text { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.3; }
         .coming-soon-overlay { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
         .coming-soon-text { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-dim); border: 1px solid var(--border); padding: 8px 20px; }
-        .editorial-panel { background: var(--bg-secondary); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+
+        /* Text panels — pure black, content floats */
+        .editorial-panel { background: var(--bg); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
         .editorial-top { display: flex; flex-direction: column; gap: 12px; }
         .editorial-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 10px; }
         .editorial-label::before { content: ''; width: 20px; height: 1px; background: var(--purple); flex-shrink: 0; }
@@ -94,11 +93,11 @@
         .editorial-title { font-family: 'Syne', sans-serif; font-size: clamp(15px,1.4vw,20px); font-weight: 700; color: var(--purple); letter-spacing: -0.01em; }
         .editorial-desc { font-size: 15px; color: var(--cream-dim); line-height: 1.85; }
         .editorial-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-        .es-item { background: var(--bg); padding: 16px 18px; border: 1px solid var(--border); }
+        .es-item { background: var(--bg-subtle); padding: 16px 18px; border: 1px solid var(--border); }
         .es-num { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--cream); line-height: 1; margin-bottom: 4px; display: block; }
         .es-label { font-size: 11px; color: var(--cream-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; }
 
-        /* STATICS ROW — supporting images below editorial blocks */
+        /* STATICS ROW */
         .statics-row { display: flex; flex-direction: column; gap: 0; }
         .statics-header { padding: 20px 0 14px; display: flex; align-items: center; gap: 10px; }
         .statics-header::before { content: ''; width: 16px; height: 1px; background: var(--purple); flex-shrink: 0; }
@@ -106,9 +105,9 @@
         .statics-grid { display: grid; gap: 2px; }
         .statics-grid.three-col { grid-template-columns: repeat(3, 1fr); }
         .statics-grid.four-col { grid-template-columns: repeat(4, 1fr); }
-        .static-cell { background: var(--bg-secondary); aspect-ratio: 16/9; position: relative; overflow: hidden; }
+        .static-cell { background: var(--bg-subtle); aspect-ratio: 16/9; position: relative; overflow: hidden; }
         .static-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .static-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .static-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
         .static-cell-label { position: absolute; bottom: 10px; left: 10px; font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.4; background: rgba(0,0,0,0.6); padding: 3px 8px; backdrop-filter: blur(4px); }
 
         /* PORTRAIT PROJECT */
@@ -120,9 +119,9 @@
         .pp-desc { font-size: 16px; color: var(--cream-dim); line-height: 1.85; }
         .pp-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; }
         .portrait-quad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-        .portrait-cell { position: relative; overflow: hidden; background: var(--bg-secondary); aspect-ratio: 9/16; }
+        .portrait-cell { position: relative; overflow: hidden; background: var(--bg-subtle); aspect-ratio: 9/16; }
         .portrait-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .portrait-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .portrait-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
         .portrait-cell-label { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.5; position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 3px 8px; backdrop-filter: blur(4px); }
 
         /* SPLIT BLOCK */
@@ -135,32 +134,19 @@
         .split-block.text-left .split-media { order: 2; }
         .split-block.text-right .split-panel { order: 2; border-left: 1px solid var(--border); }
         .split-block.text-right .split-media { order: 1; }
-        .split-panel { background: var(--bg-secondary); padding: 56px 48px; display: flex; flex-direction: column; gap: 20px; }
+
+        /* Text panel — pure black */
+        .split-panel { background: var(--bg); padding: 56px 48px; display: flex; flex-direction: column; gap: 20px; }
         .split-panel-top { display: flex; flex-direction: column; gap: 12px; flex: 1; }
         .split-media.portrait-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-        .portrait-pair-cell { position: relative; aspect-ratio: 9/16; overflow: hidden; background: var(--bg-secondary); }
+        .portrait-pair-cell { position: relative; aspect-ratio: 9/16; overflow: hidden; background: var(--bg-subtle); }
         .portrait-pair-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .portrait-pair-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-        .split-media.single-video { position: relative; overflow: hidden; background: var(--bg-secondary); min-height: 400px; }
+        .portrait-pair-cell-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+        .split-media.single-video { position: relative; overflow: hidden; background: var(--bg-subtle); min-height: 400px; }
         .split-media.single-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-        /* Portrait single — Jill Scott, centred and floating on black */
-        .split-media.portrait-single {
-            background: var(--bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 48px;
-        }
-        .portrait-single-cell {
-            width: 220px;
-            aspect-ratio: 9/16;
-            position: relative;
-            overflow: hidden;
-            background: var(--bg-secondary);
-        }
+        .split-media.portrait-single { background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 48px; }
+        .portrait-single-cell { width: 220px; aspect-ratio: 9/16; position: relative; overflow: hidden; background: var(--bg-subtle); }
         .portrait-single-cell iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
         .split-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 10px; }
         .split-label::before { content: ''; width: 20px; height: 1px; background: var(--purple); flex-shrink: 0; }
         .split-client { font-family: 'Syne', sans-serif; font-size: clamp(40px,4vw,68px); font-weight: 800; color: var(--cream); line-height: 0.88; letter-spacing: -0.03em; }
@@ -168,14 +154,14 @@
         .split-desc { font-size: 15px; color: var(--cream-dim); line-height: 1.85; }
         .split-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; align-self: flex-start; }
         .split-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-        .ss-item { background: var(--bg); padding: 14px 16px; border: 1px solid var(--border); }
+        .ss-item { background: var(--bg-subtle); padding: 14px 16px; border: 1px solid var(--border); }
         .ss-num { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; color: var(--cream); line-height: 1; margin-bottom: 3px; display: block; }
         .ss-label { font-size: 11px; color: var(--cream-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; }
         .split-sub { border-top: 1px solid var(--border); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
         .split-sub-title { font-family: 'Syne', sans-serif; font-size: clamp(14px,1.2vw,18px); font-weight: 700; color: var(--purple); letter-spacing: -0.01em; }
 
         /* EXPERIENTIAL */
-        #experiential { border-top: 1px solid var(--border); background: var(--bg); padding-left: 0; padding-right: 0; }
+        #experiential { border-top: 1px solid var(--border); padding-left: 0; padding-right: 0; }
         #experiential .section-label, #experiential .section-title { padding: 0 48px; }
         .exp-feed { display: flex; flex-direction: column; gap: 80px; }
         .exp-entry { display: flex; flex-direction: column; gap: 2px; }
@@ -184,25 +170,27 @@
         .exp-editorial.flipped .exp-media { order: 2; }
         .exp-editorial.flipped .exp-panel { order: 1; border-left: none; border-right: 1px solid var(--border); }
         .exp-editorial.hsbc-layout { grid-template-columns: 350px 1fr; }
-        .exp-media { position: relative; overflow: hidden; background: var(--bg-secondary); }
+        .exp-media { position: relative; overflow: hidden; background: var(--bg-subtle); }
         .exp-media iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .exp-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; align-items: center; justify-content: center; }
-        .exp-panel { background: var(--bg-secondary); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+        .exp-media-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; align-items: center; justify-content: center; }
+
+        /* Experiential text panel — pure black */
+        .exp-panel { background: var(--bg); padding: 56px 48px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 16px; }
         .exp-editorial.flipped .exp-panel { border-left: none; border-right: 1px solid var(--border); }
         .exp-client { font-family: 'Syne', sans-serif; font-size: clamp(36px,3.5vw,60px); font-weight: 800; color: var(--cream); line-height: 0.9; letter-spacing: -0.03em; }
         .exp-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--purple); }
         .exp-desc { font-size: 15px; color: var(--cream-dim); line-height: 1.8; }
         .exp-tag { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--purple-dim); color: var(--purple); display: inline-block; align-self: flex-start; }
         .exp-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-        .exp-img { background: var(--bg-secondary); aspect-ratio: 16/9; position: relative; overflow: hidden; }
+        .exp-img { background: var(--bg-subtle); aspect-ratio: 16/9; position: relative; overflow: hidden; }
         .exp-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .exp-img-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; align-items: center; justify-content: center; }
+        .exp-img-inner { position: absolute; inset: 0; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; align-items: center; justify-content: center; }
 
         /* IDEAS */
         #ideas { border-top: 1px solid var(--border); }
         .ideas-intro { font-size: 17px; color: var(--cream-dim); max-width: 600px; line-height: 1.8; margin-bottom: 60px; margin-top: -20px; }
         .ideas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-        .idea-card { background: var(--bg-secondary); border: 1px dashed rgba(124,92,191,0.3); padding: 40px 32px; cursor: none; transition: border-color 0.3s ease; }
+        .idea-card { background: var(--bg-subtle); border: 1px dashed rgba(124,92,191,0.3); padding: 40px 32px; cursor: none; transition: border-color 0.3s ease; }
         .idea-card:hover { border-color: var(--purple); }
         .idea-number { font-family: 'Syne', sans-serif; font-size: 64px; font-weight: 800; color: var(--purple); opacity: 0.2; line-height: 1; margin-bottom: 20px; }
         .idea-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: var(--cream); margin-bottom: 12px; }
@@ -215,9 +203,9 @@
         .sidehustle-intro p { font-size: 18px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 16px; }
         .sidehustle-intro p strong { color: var(--cream); font-weight: 500; }
         .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-        .game-card { background: var(--bg-secondary); overflow: hidden; cursor: none; border: 1px solid var(--border); transition: border-color 0.3s ease; display: flex; flex-direction: column; }
+        .game-card { background: var(--bg-subtle); overflow: hidden; cursor: none; border: 1px solid var(--border); transition: border-color 0.3s ease; display: flex; flex-direction: column; }
         .game-card:hover { border-color: var(--purple); }
-        .game-thumb { aspect-ratio: 16/9; background: linear-gradient(135deg,#0a0a0a,#1a1a1a); display: flex; align-items: center; justify-content: center; font-size: 48px; opacity: 0.4; transition: opacity 0.3s ease; }
+        .game-thumb { aspect-ratio: 16/9; background: linear-gradient(135deg,#0a0a0a,#161616); display: flex; align-items: center; justify-content: center; font-size: 48px; opacity: 0.4; transition: opacity 0.3s ease; }
         .game-card:hover .game-thumb { opacity: 0.7; }
         .game-info { padding: 24px; flex: 1; }
         .game-platform { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; }
@@ -248,7 +236,7 @@
             .about-grid, .pp-body { grid-template-columns: 1fr; gap: 40px; }
             .editorial-block, .editorial-block.flipped, .split-block.portrait-media, .split-block.portrait-media.text-right, .split-block.single-media, .split-block.portrait-single-media, .exp-editorial, .exp-editorial.flipped, .exp-editorial.hsbc-layout { grid-template-columns: 1fr; }
             .editorial-block.flipped .editorial-media, .editorial-block.flipped .editorial-panel, .split-block.text-left .split-panel, .split-block.text-left .split-media, .split-block.text-right .split-panel, .split-block.text-right .split-media { order: unset; border: none; }
-            .split-panel, .editorial-panel { border-top: 1px solid var(--border); }
+            .split-panel, .editorial-panel, .exp-panel { border-top: 1px solid var(--border); border-left: none; border-right: none; }
             .portrait-quad { grid-template-columns: repeat(2,1fr); }
             .portrait-pair-cell { width: 100%; }
             .statics-grid.three-col, .statics-grid.four-col { grid-template-columns: 1fr 1fr; }
@@ -309,7 +297,6 @@
 
         <div class="projects-feed">
 
-            <!-- ① CHANNEL 4 -->
             <div class="project-entry reveal">
                 <div class="editorial-block">
                     <div class="editorial-media">
@@ -330,7 +317,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Press reaction & rewards — drop images here when ready -->
                 <div class="statics-row">
                     <div class="statics-header"><span>The Rewards &amp; Press Reaction</span></div>
                     <div class="statics-grid three-col">
@@ -341,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- ② LEXUS -->
             <div class="project-entry reveal">
                 <div class="editorial-block flipped">
                     <div class="editorial-media">
@@ -359,7 +344,6 @@
                 </div>
             </div>
 
-            <!-- ③ PLAY-DOH -->
             <div class="project-entry reveal">
                 <div class="portrait-project">
                     <div class="pp-header">
@@ -371,36 +355,19 @@
                         <div><span class="pp-tag">Creative Concept / Social Series</span></div>
                     </div>
                     <div class="portrait-quad">
-                        <div class="portrait-cell">
-                            <iframe src="https://drive.google.com/file/d/1wP3y4NciIdBg6WRXl94o1SNKEgsNszv0/preview" allow="autoplay" frameborder="0"></iframe>
-                            <span class="portrait-cell-label">Episode 1</span>
-                        </div>
-                        <div class="portrait-cell">
-                            <iframe src="https://drive.google.com/file/d/1ym1qiMKiaDsb1a6DFbSpLssZol_9ignG/preview" allow="autoplay" frameborder="0"></iframe>
-                            <span class="portrait-cell-label">Episode 2</span>
-                        </div>
-                        <div class="portrait-cell">
-                            <iframe src="https://drive.google.com/file/d/16dM5Qe7Z5NV25ISXo4ADggUGWPnfYNQH/preview" allow="autoplay" frameborder="0"></iframe>
-                            <span class="portrait-cell-label">Episode 3</span>
-                        </div>
-                        <div class="portrait-cell">
-                            <iframe src="https://drive.google.com/file/d/18bzmqtb56pmY7Eu7uFBxwTjGWcf35DH_/preview" allow="autoplay" frameborder="0"></iframe>
-                            <span class="portrait-cell-label">Saying What They See</span>
-                        </div>
+                        <div class="portrait-cell"><iframe src="https://drive.google.com/file/d/1wP3y4NciIdBg6WRXl94o1SNKEgsNszv0/preview" allow="autoplay" frameborder="0"></iframe><span class="portrait-cell-label">Episode 1</span></div>
+                        <div class="portrait-cell"><iframe src="https://drive.google.com/file/d/1ym1qiMKiaDsb1a6DFbSpLssZol_9ignG/preview" allow="autoplay" frameborder="0"></iframe><span class="portrait-cell-label">Episode 2</span></div>
+                        <div class="portrait-cell"><iframe src="https://drive.google.com/file/d/16dM5Qe7Z5NV25ISXo4ADggUGWPnfYNQH/preview" allow="autoplay" frameborder="0"></iframe><span class="portrait-cell-label">Episode 3</span></div>
+                        <div class="portrait-cell"><iframe src="https://drive.google.com/file/d/18bzmqtb56pmY7Eu7uFBxwTjGWcf35DH_/preview" allow="autoplay" frameborder="0"></iframe><span class="portrait-cell-label">Saying What They See</span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- ④ TALKTALK -->
             <div class="project-entry reveal">
                 <div class="split-block portrait-media text-right">
                     <div class="split-media portrait-pair">
-                        <div class="portrait-pair-cell">
-                            <iframe src="https://drive.google.com/file/d/1TO3sMLdkHk4eZsbqiWJOaF-kEElCnSjO/preview" allow="autoplay" frameborder="0"></iframe>
-                        </div>
-                        <div class="portrait-pair-cell">
-                            <iframe src="https://drive.google.com/file/d/1sfF9msYohBTA2HCAj9dC8oPK2mLDsy-3/preview" allow="autoplay" frameborder="0"></iframe>
-                        </div>
+                        <div class="portrait-pair-cell"><iframe src="https://drive.google.com/file/d/1TO3sMLdkHk4eZsbqiWJOaF-kEElCnSjO/preview" allow="autoplay" frameborder="0"></iframe></div>
+                        <div class="portrait-pair-cell"><iframe src="https://drive.google.com/file/d/1sfF9msYohBTA2HCAj9dC8oPK2mLDsy-3/preview" allow="autoplay" frameborder="0"></iframe></div>
                     </div>
                     <div class="split-panel">
                         <div class="split-panel-top">
@@ -414,7 +381,6 @@
                 </div>
             </div>
 
-            <!-- ⑤ DISNEY -->
             <div class="project-entry reveal">
                 <div class="split-block portrait-media text-left">
                     <div class="split-panel">
@@ -427,17 +393,12 @@
                         <span class="split-tag">Social Story</span>
                     </div>
                     <div class="split-media portrait-pair">
-                        <div class="portrait-pair-cell">
-                            <iframe src="https://drive.google.com/file/d/1IWKZjLp10WZwlTiGQ34EBKj9qbX2GSGH/preview" allow="autoplay" frameborder="0"></iframe>
-                        </div>
-                        <div class="portrait-pair-cell">
-                            <iframe src="https://drive.google.com/file/d/1hnoL5411FJelwtBApWStSBBX3nIFosgx/preview" allow="autoplay" frameborder="0"></iframe>
-                        </div>
+                        <div class="portrait-pair-cell"><iframe src="https://drive.google.com/file/d/1IWKZjLp10WZwlTiGQ34EBKj9qbX2GSGH/preview" allow="autoplay" frameborder="0"></iframe></div>
+                        <div class="portrait-pair-cell"><iframe src="https://drive.google.com/file/d/1hnoL5411FJelwtBApWStSBBX3nIFosgx/preview" allow="autoplay" frameborder="0"></iframe></div>
                     </div>
                 </div>
             </div>
 
-            <!-- ⑥ BAT -->
             <div class="project-entry reveal">
                 <div class="split-block single-media text-left">
                     <div class="split-panel">
@@ -463,7 +424,6 @@
                 </div>
             </div>
 
-            <!-- ⑦ ADOBE — Photoshop IRL -->
             <div class="project-entry reveal">
                 <div class="split-block single-media text-right">
                     <div class="split-media single-video">
@@ -487,7 +447,6 @@
                 </div>
             </div>
 
-            <!-- ⑧ ADOBE — Anyone Can / Jill Scott (portrait, floating) -->
             <div class="project-entry reveal">
                 <div class="split-block portrait-single-media text-left">
                     <div class="split-panel">
@@ -499,7 +458,6 @@
                         </div>
                         <span class="split-tag">Influencer / Social</span>
                     </div>
-                    <!-- Jill Scott's 9:16 centred and floating on black -->
                     <div class="split-media portrait-single">
                         <div class="portrait-single-cell">
                             <iframe src="https://drive.google.com/file/d/1KXf6oM-jUhdZL3BdoHu1EC5sNfVetDZI/preview" allow="autoplay" frameborder="0"></iframe>
@@ -511,14 +469,12 @@
         </div>
     </section>
 
-    <!-- EXPERIENTIAL -->
     <section id="experiential">
         <span class="section-label">Experiential</span>
         <h2 class="section-title">Immersive brand<br>experiences.</h2>
 
         <div class="exp-feed">
 
-            <!-- SECRET CINEMA -->
             <div class="exp-entry reveal">
                 <div class="exp-editorial">
                     <div class="exp-media">
@@ -532,7 +488,6 @@
                         <span class="exp-tag">Immersive / Events</span>
                     </div>
                 </div>
-                <!-- Photography below — drop images in here -->
                 <div class="exp-images">
                     <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
                     <div class="exp-img"><div class="exp-img-inner"><span class="media-ph-icon">◼</span></div></div>
@@ -540,7 +495,6 @@
                 </div>
             </div>
 
-            <!-- HSBC -->
             <div class="exp-entry reveal">
                 <div class="exp-editorial hsbc-layout">
                     <div class="exp-media">
@@ -554,7 +508,6 @@
                         <span class="exp-tag">OOH / Experiential</span>
                     </div>
                 </div>
-                <!-- OOH statics below — drop images in here -->
                 <div class="statics-row">
                     <div class="statics-header"><span>OOH, Branch Wraps &amp; UGC</span></div>
                     <div class="statics-grid three-col">
@@ -565,7 +518,6 @@
                 </div>
             </div>
 
-            <!-- AMAZON -->
             <div class="exp-entry reveal">
                 <div class="exp-editorial flipped">
                     <div class="exp-media">
@@ -584,7 +536,6 @@
         </div>
     </section>
 
-    <!-- IDEAS -->
     <section id="ideas">
         <span class="section-label">Ideas</span>
         <h2 class="section-title">Things I want<br>to make.</h2>
@@ -596,7 +547,6 @@
         </div>
     </section>
 
-    <!-- SIDE HUSTLE -->
     <section id="sidehustle">
         <span class="section-label">Side Hustle</span>
         <h2 class="section-title">I also make<br>video games.</h2>
@@ -614,7 +564,7 @@
                     <span class="game-status">Shipped ✓</span>
                 </div>
                 <div class="game-qr">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/hearth-and-honey/id1659834055&amp;color=E8DFD0&amp;bgcolor=141414" alt="Scan to download">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/hearth-and-honey/id1659834055&amp;color=E8DFD0&amp;bgcolor=0f0f0f" alt="Scan to download">
                     <div class="game-qr-text"><span class="game-qr-label">Scan to download</span><a href="https://apps.apple.com/gb/app/hearth-and-honey/id1659834055" target="_blank" class="game-qr-link">View on App Store</a></div>
                 </div>
             </div>
@@ -627,7 +577,7 @@
                     <span class="game-status">Shipped ✓</span>
                 </div>
                 <div class="game-qr">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/raccoon-remedies/id6746204716&amp;color=E8DFD0&amp;bgcolor=141414" alt="Scan to download">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://apps.apple.com/gb/app/raccoon-remedies/id6746204716&amp;color=E8DFD0&amp;bgcolor=0f0f0f" alt="Scan to download">
                     <div class="game-qr-text"><span class="game-qr-label">Scan to download</span><a href="https://apps.apple.com/gb/app/raccoon-remedies/id6746204716" target="_blank" class="game-qr-link">View on App Store</a></div>
                 </div>
             </div>
